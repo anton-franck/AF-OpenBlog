@@ -1,0 +1,4 @@
+services:
+  strapi:
+    ports:
+      - ${STRAPI_DEVELOP_DOCKER_PORT}

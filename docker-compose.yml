@@ -1,0 +1,51 @@
+services:
+  strapi-mariadb:
+    container_name: ${COMPOSE_PROJECT_NAME}-strapi-mariadb
+    hostname: ${STRAPI_DATABASE_HOST}
+    image: mariadb:11.3.2
+    restart: unless-stopped
+    volumes:
+      - ./mariadb/data:/var/lib/mysql
+      - ./mariadb/log:/var/log/mysql
+    environment:
+      MARIADB_USER: ${STRAPI_DATABASE_USERNAME}
+      MARIADB_ROOT_PASSWORD: ${DATABASE_ROOT_PASSWORD}
+      MARIADB_PASSWORD: ${STRAPI_DATABASE_PASSWORD}
+      MARIADB_DATABASE: ${STRAPI_DATABASE_NAME}
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      start_period: 10s
+      interval: 10s
+      timeout: 5s
+      retries: 3
+
+  strapi:
+    container_name: ${COMPOSE_PROJECT_NAME}-strapi
+    hostname: ${COMPOSE_PROJECT_NAME}-strapi
+    image: node:18-alpine
+    restart: unless-stopped
+    environment:
+      DATABASE_CLIENT: ${STRAPI_DATABASE_CLIENT}
+      DATABASE_HOST: ${STRAPI_DATABASE_HOST}
+      DATABASE_PORT: ${STRAPI_DATABASE_PORT}
+      DATABASE_NAME: ${STRAPI_DATABASE_NAME}
+      DATABASE_USERNAME: ${STRAPI_DATABASE_USERNAME}
+      DATABASE_PASSWORD: ${STRAPI_DATABASE_PASSWORD}
+      JWT_SECRET: ${STRAPI_JWT_SECRET}
+      ADMIN_JWT_SECRET: ${STRAPI_ADMIN_JWT_SECRET}
+      APP_KEYS: ${STRAPI_APP_KEYS}
+      API_TOKEN_SALT: ${STRAPI_API_TOKEN_SALT}
+      TRANSFER_TOKEN_SALT: ${STRAPI_TRANSFER_TOKEN_SALT}
+      NODE_ENV: ${STRAPI_NODE_ENV}
+    working_dir: "/app"
+    init: true
+    command: ["npm", "run", "$STRAPI_EXEC_COMMAND"]
+    volumes:
+      - ./strapi/app:/app
+    depends_on:
+      strapi-mariadb:
+        condition: service_healthy
+
+networks:
+  default:
+    name: ${COMPOSE_PROJECT_NAME}-strapi
