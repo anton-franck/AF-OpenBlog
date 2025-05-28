@@ -1,0 +1,26 @@
+{
+  "kind": "singleType",
+  "collectionName": "blogpages",
+  "info": {
+    "singularName": "blogpage",
+    "pluralName": "blogpages",
+    "displayName": "Blogpage"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "favblogs": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::blogentry.blogentry"
+    }
+  }
+}
