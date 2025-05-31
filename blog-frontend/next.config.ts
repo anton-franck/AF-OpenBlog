@@ -9,6 +9,10 @@ const nextConfig: NextConfig = {
         hostname: "localhost",
         port: "1338",
       },
+      {
+        protocol: "https",
+        hostname: "laby.afnetwork.de",
+      },
     ],
   },
 };
