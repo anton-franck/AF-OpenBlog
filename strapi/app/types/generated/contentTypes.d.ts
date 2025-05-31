@@ -384,11 +384,13 @@ export interface ApiBlogentryBlogentry extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    blogimage: Schema.Attribute.Media<'images'>;
+    components: Schema.Attribute.DynamicZone<['components.herobanner']>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     description: Schema.Attribute.Text;
-    label: Schema.Attribute.Relation<'oneToOne', 'api::label.label'>;
+    labels: Schema.Attribute.Relation<'oneToMany', 'api::label.label'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -396,6 +398,8 @@ export interface ApiBlogentryBlogentry extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
+    seodescription: Schema.Attribute.Text;
+    seotitle: Schema.Attribute.String & Schema.Attribute.Required;
     slug: Schema.Attribute.String & Schema.Attribute.Required;
     title: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
@@ -423,6 +427,7 @@ export interface ApiBlogpageBlogpage extends Struct.SingleTypeSchema {
       'oneToMany',
       'api::blogentry.blogentry'
     >;
+    icon: Schema.Attribute.Media<'images'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -430,6 +435,8 @@ export interface ApiBlogpageBlogpage extends Struct.SingleTypeSchema {
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
+    seodescription: Schema.Attribute.Text;
+    seotitle: Schema.Attribute.String;
     title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -448,6 +455,10 @@ export interface ApiLabelLabel extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    blogentry: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::blogentry.blogentry'
+    >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -455,7 +466,7 @@ export interface ApiLabelLabel extends Struct.CollectionTypeSchema {
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::label.label'> &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
-    titel: Schema.Attribute.String;
+    title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;

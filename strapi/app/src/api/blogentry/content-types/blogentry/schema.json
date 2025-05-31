@@ -15,16 +15,37 @@
       "type": "string",
       "required": true
     },
-    "label": {
+    "labels": {
       "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::label.label"
+      "relation": "oneToMany",
+      "target": "api::label.label",
+      "mappedBy": "blogentry"
     },
     "slug": {
       "type": "string",
       "required": true
     },
     "description": {
+      "type": "text"
+    },
+    "blogimage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "components": {
+      "type": "dynamiczone",
+      "components": [
+        "components.herobanner"
+      ]
+    },
+    "seotitle": {
+      "type": "string",
+      "required": true
+    },
+    "seodescription": {
       "type": "text"
     }
   }

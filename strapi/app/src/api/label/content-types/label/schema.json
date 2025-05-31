@@ -11,8 +11,14 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "titel": {
+    "title": {
       "type": "string"
+    },
+    "blogentry": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::blogentry.blogentry",
+      "inversedBy": "labels"
     }
   }
 }

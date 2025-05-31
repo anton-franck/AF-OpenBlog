@@ -11,6 +11,13 @@
   },
   "pluginOptions": {},
   "attributes": {
+    "icon": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
     "title": {
       "type": "string"
     },
@@ -21,6 +28,12 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::blogentry.blogentry"
+    },
+    "seotitle": {
+      "type": "string"
+    },
+    "seodescription": {
+      "type": "text"
     }
   }
 }
