@@ -18,7 +18,7 @@ interface FeaturedProps {
 
 export default function FavBlogs({ favBlogs }: FeaturedProps) {
     return (
-        <section className="py-8 sm:py-12 lg:py-16 bg-muted">
+        <section className="pb-8 lg:pb-12 flex justify-center bg-muted">
             <div className="container px-4">
                 <div className="flex items-center mb-6 sm:mb-8">
                     <HeartIcon className="h-5 w-5 mr-2 text-primary" />
