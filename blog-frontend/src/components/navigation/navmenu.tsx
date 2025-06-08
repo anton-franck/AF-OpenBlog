@@ -6,9 +6,8 @@ import {
     SheetTrigger,
     SheetClose,
 } from "@/components/ui/sheet"
-import { Menu, MenuIcon, X } from "lucide-react"
+import { MenuIcon, X } from "lucide-react"
 import Link from "next/link"
-import { Button } from "../ui/button"
 
 
 export const NavMenu = async () => {

@@ -1,7 +1,4 @@
-import Link from "next/link"
 import Image from "next/image";
-import { Button } from "../ui/button";
-import { MenuIcon } from "lucide-react";
 import { NavMenu } from "./navmenu";
 
 interface HeaderProps {
