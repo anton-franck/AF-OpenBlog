@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { getBlogPage } from "@/services/blogdata.service";
+import { getBlogPage } from "@/services/blogpage.service";
 import { Header } from "@/components/navigation/header";
 import Footer from "@/components/navigation/footer";
 import { getBlogpageSettings } from "@/services/blogsettings.service";

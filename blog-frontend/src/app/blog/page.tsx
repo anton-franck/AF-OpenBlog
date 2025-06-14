@@ -1,4 +1,4 @@
-import { getBlogPage } from "@/services/blogdata.service";
+import { getBlogPage } from "@/services/blogpage.service";
 import { getBlogposts } from "@/services/blogposts.service";
 import AllPosts from "@/components/posts";
 import { Metadata } from "next";

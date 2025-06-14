@@ -41,14 +41,6 @@ export const getBlogpageSettings = async (): Promise<BlogPageSettings> => {
             icon: {
               fields: populateImageFields,
             },
-            favblogs: {
-              fields: "*",
-              populate: {
-                blogimage: {
-                  fields: populateImageFields,
-                },
-              },
-            },
           },
         });
 
