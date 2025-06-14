@@ -18,7 +18,7 @@ export const NavMenu = async () => {
             <div className="hidden lg:block ">
                 <div className="flex gap-4">
                     <Link href={"/"}>Home</Link>
-                    <Link href={"/Blog"}>Blog</Link>
+                    <Link href={"/blog"}>Blog</Link>
                     <Link href={"/"}>Custom</Link>
                 </div>
             </div>
