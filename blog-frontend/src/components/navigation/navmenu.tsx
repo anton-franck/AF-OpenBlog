@@ -9,8 +9,16 @@ import {
 import { MenuIcon, X } from "lucide-react"
 import Link from "next/link"
 
+interface HeaderProps {
+    navlinks: NavLinks[];
+}
 
-export const NavMenu = async () => {
+interface NavLinks {
+    name: string;
+    link: string;
+}
+
+export const NavMenu: React.FC<HeaderProps> = ({ navlinks }) => {
 
 
     return (
@@ -19,7 +27,9 @@ export const NavMenu = async () => {
                 <div className="flex gap-4">
                     <Link href={"/"}>Home</Link>
                     <Link href={"/blog"}>Blog</Link>
-                    <Link href={"/"}>Custom</Link>
+                    {navlinks.map((links) => (
+                        <Link href={links.link}>{links.name}</Link>
+                    ))}
                 </div>
             </div>
             <div className="lg:hidden">

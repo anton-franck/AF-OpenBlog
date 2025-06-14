@@ -388,6 +388,9 @@ export interface ApiBlogBlog extends Struct.SingleTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    defaultseodescription: Schema.Attribute.Text &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'Blogsite from OpenBlog'>;
     defaultseotitle: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<'OpenBlog by AF'>;
@@ -399,11 +402,9 @@ export interface ApiBlogBlog extends Struct.SingleTypeSchema {
     name: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<'OpenBlog'>;
+    NavLinks: Schema.Attribute.Component<'helpercomponents.navlinks', true>;
     othersitelink: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
-    seodescription: Schema.Attribute.Text &
-      Schema.Attribute.Required &
-      Schema.Attribute.DefaultTo<'Blogsite from OpenBlog'>;
     siteadminname: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &

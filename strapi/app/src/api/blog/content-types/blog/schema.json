@@ -28,7 +28,7 @@
       "default": "OpenBlog by AF",
       "required": true
     },
-    "seodescription": {
+    "defaultseodescription": {
       "type": "text",
       "default": "Blogsite from OpenBlog",
       "required": true
@@ -46,6 +46,12 @@
     },
     "siteadminname": {
       "type": "string"
+    },
+    "NavLinks": {
+      "type": "component",
+      "component": "helpercomponents.navlinks",
+      "repeatable": true,
+      "required": false
     }
   }
 }

@@ -11,16 +11,20 @@ import qs from "qs";
 
 export interface BlogPageSettings {
   id: number;
-  title: string;
-  description: string;
   name: string;
   defaultseotitle: string;
-  seodescription: string;
+  defaultseodescription: string;
   fromothersite: boolean;
   othersitelink: string;
   contactmail: string;
   siteadminname: string;
   icon: StrapiImage;
+  NavLinks: NavLinks[];
+}
+
+interface NavLinks {
+  name: string;
+  link: string;
 }
 
 interface StrapiImage {
@@ -40,6 +44,9 @@ export const getBlogpageSettings = async (): Promise<BlogPageSettings> => {
             fields: "*",
             icon: {
               fields: populateImageFields,
+            },
+            NavLinks: {
+              fields: "*",
             },
           },
         });
