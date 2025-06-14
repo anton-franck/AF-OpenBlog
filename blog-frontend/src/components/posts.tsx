@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { BlogCard } from "./blog-card";
 
 
-interface Post { id: number; title: string; description: string; blogimage?: { url: string }; updatedAt: string; }
+interface Post { id: number; title: string; description: string; blogimage?: { url: string }; updatedAt: string; slug: string; }
 
 interface AllProps { posts: Post[]; }
 

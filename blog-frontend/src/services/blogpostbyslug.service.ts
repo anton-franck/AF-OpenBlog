@@ -30,11 +30,19 @@ interface StrapiImage {
   url: string;
 }
 
-export const getBlogpostById = async (id: string): Promise<BlogPost> => {
+export const getBlogpostBySlug = async (
+  slug: string
+): Promise<BlogPost["data"] | null> => {
   return unstable_cache(
-    async (): Promise<BlogPost> => {
+    async (): Promise<BlogPost["data"] | null> => {
       try {
+        if (!slug) throw new Error("Slug is required to fetch a blog post.");
         const query = qs.stringify({
+          filters: {
+            slug: {
+              $eq: slug,
+            },
+          },
           populate: {
             fields: "*",
             blogimage: {
@@ -49,7 +57,7 @@ export const getBlogpostById = async (id: string): Promise<BlogPost> => {
         });
 
         const response = await fetch(
-          `${STRAPI_URL}/api/blogentries/${id}?${query}`,
+          `${STRAPI_URL}/api/blogentries/?${query}`,
           {
             headers: {
               "Content-Type": "application/json",
@@ -60,19 +68,23 @@ export const getBlogpostById = async (id: string): Promise<BlogPost> => {
 
         if (!response.ok) {
           throw new Error(
-            `Failed to fetch blog post ${id}: ${response.status}`
+            `Failed to fetch blog post ${slug}: ${response.status}`
           );
         }
 
         const responseData = await response.json();
-        const blogpost = responseData as BlogPost;
+        // Strapi returns an array in responseData.data
+        if (!responseData.data || responseData.data.length === 0) {
+          return null;
+        }
+        const blogpost = responseData.data[0];
         return processStrapiMediaUrls(blogpost);
       } catch (error) {
-        console.error(`Error fetching blog post with ID ${id}:`, error);
+        console.error(`Error fetching blog post with slug ${slug}:`, error);
         throw error;
       }
     },
-    [`blog-post-${id}`],
+    [`blog-post-${slug}`],
     {
       revalidate: 60,
     }

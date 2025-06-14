@@ -13,6 +13,7 @@ interface BlogCardProps {
     post: {
         id: number;
         title: string;
+        slug: string;
         description: string;
         blogimage?: { url: string };
         updatedAt: string;
@@ -21,7 +22,7 @@ interface BlogCardProps {
 
 export const BlogCard: React.FC<BlogCardProps> = ({ post }) => {
     return (
-        <Link href={`/blog/${post.id}`}>
+        <Link href={`/blog/${post.slug}`}>
             <Card className="overflow-hidden flex flex-col h-full">
                 {post.blogimage ? (
                     <div className="relative h-48 w-full">
@@ -38,7 +39,7 @@ export const BlogCard: React.FC<BlogCardProps> = ({ post }) => {
                     </div>
                 )}
                 <CardHeader>
-                    <CardTitle className="line-clamp-2">{post.title} {post.id}</CardTitle>
+                    <CardTitle className="line-clamp-2">{post.title}</CardTitle>
                 </CardHeader>
                 <CardContent>
                     <p className="text-muted-foreground line-clamp-3">

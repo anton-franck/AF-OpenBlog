@@ -7,6 +7,7 @@ import Link from "next/link";
 interface Post {
     id: number;
     title: string;
+    slug: string;
     description: string;
     blogimage?: { url: string };
     updatedAt: string;
@@ -26,7 +27,7 @@ export default function FavBlogs({ favBlogs }: FeaturedProps) {
                 </div>
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
                     {favBlogs.map((post) => (
-                        <Link href={`/blog/${post.id}`} key={post.id} >
+                        <Link href={`/blog/${post.slug}`} key={post.id} >
                             <Card key={post.id} className="overflow-hidden flex flex-col lg:flex-row h-full">
 
                                 <div className="relative w-full lg:w-1/3 h-48 lg:h-auto min-h-[200px]">

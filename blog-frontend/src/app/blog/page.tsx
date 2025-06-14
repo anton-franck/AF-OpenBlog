@@ -12,7 +12,6 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function Home() {
-    const blogpage = await getBlogPage();
     const blogposts = (await getBlogposts()).data;
 
     return (
