@@ -6,7 +6,7 @@ import Footer from "@/components/navigation/footer";
 import { Header } from "@/components/navigation/header";
 import FavBlogs from "@/components/favposts";
 import { Metadata } from "next";
-import { getBlogpostById } from "@/services/idblogpost.service";
+// import { getBlogpostById } from "@/services/idblogpost.service";
 
 export async function generateMetadata(): Promise<Metadata> {
   const pageMetaData = await getBlogPage()
