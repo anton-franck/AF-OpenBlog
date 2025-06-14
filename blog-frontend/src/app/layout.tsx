@@ -22,7 +22,7 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body>
-        <Header blogpage={settings} navlinks={settings.NavLinks} />
+        <Header settings={settings} navlinks={settings.NavLinks} />
         {children}
         <Footer icon={settings.icon.url} name={settings.name} />
       </body>

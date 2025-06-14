@@ -468,7 +468,6 @@ export interface ApiBlogpageBlogpage extends Struct.SingleTypeSchema {
       'oneToMany',
       'api::blogentry.blogentry'
     >;
-    icon: Schema.Attribute.Media<'images'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',

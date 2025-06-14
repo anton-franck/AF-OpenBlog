@@ -15,7 +15,6 @@ export interface BlogPage {
   description: string;
   seotitle: string;
   seodescription: string;
-  icon: StrapiImage;
   favblogs: {
     id: number;
     title: string;
@@ -63,9 +62,6 @@ export const getBlogPage = async (): Promise<BlogPage> => {
         const query = qs.stringify({
           populate: {
             fields: "*",
-            icon: {
-              fields: populateImageFields,
-            },
             favblogs: {
               fields: "*",
               populate: {
