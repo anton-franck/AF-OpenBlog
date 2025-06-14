@@ -38,7 +38,7 @@ export const BlogCard: React.FC<BlogCardProps> = ({ post }) => {
                     </div>
                 )}
                 <CardHeader>
-                    <CardTitle className="line-clamp-2">{post.title}</CardTitle>
+                    <CardTitle className="line-clamp-2">{post.title} {post.id}</CardTitle>
                 </CardHeader>
                 <CardContent>
                     <p className="text-muted-foreground line-clamp-3">
@@ -51,6 +51,7 @@ export const BlogCard: React.FC<BlogCardProps> = ({ post }) => {
                         {new Date(post.updatedAt).toLocaleDateString("de-DE")}
                     </div>
                 </CardFooter>
+
             </Card>
         </Link>
     );

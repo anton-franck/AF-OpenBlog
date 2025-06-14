@@ -38,7 +38,8 @@
     "components": {
       "type": "dynamiczone",
       "components": [
-        "components.herobanner"
+        "components.herobanner",
+        "components.richtext"
       ]
     },
     "seotitle": {

@@ -14,10 +14,9 @@ export interface BlogPosts {
     id: number;
     title: string;
     description: string;
+    documentId: string;
     blogimage: StrapiImage;
     slug: string;
-    seotitle: string;
-    seodescription: string;
     updatedAt: string;
     labels?: BlogLabel[];
   }[];
@@ -72,7 +71,6 @@ export const getBlogposts = async (): Promise<BlogPosts> => {
           },
         });
 
-        // For a Single Type, we don't need an ID in the URL
         const response = await fetch(`${STRAPI_URL}/api/blogentries?${query}`, {
           headers: {
             "Content-Type": "application/json",
@@ -94,7 +92,7 @@ export const getBlogposts = async (): Promise<BlogPosts> => {
     },
     ["blog-posts"],
     {
-      revalidate: 60, // Revalidate every minute
+      revalidate: 60,
     }
   )();
 };

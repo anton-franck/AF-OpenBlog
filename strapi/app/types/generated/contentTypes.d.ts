@@ -385,7 +385,9 @@ export interface ApiBlogentryBlogentry extends Struct.CollectionTypeSchema {
   };
   attributes: {
     blogimage: Schema.Attribute.Media<'images'>;
-    components: Schema.Attribute.DynamicZone<['components.herobanner']>;
+    components: Schema.Attribute.DynamicZone<
+      ['components.herobanner', 'components.richtext']
+    >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
