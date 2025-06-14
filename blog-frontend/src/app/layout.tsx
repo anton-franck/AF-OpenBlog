@@ -3,6 +3,7 @@ import "./globals.css";
 import { getBlogPage } from "@/services/blogdata.service";
 import { Header } from "@/components/navigation/header";
 import Footer from "@/components/navigation/footer";
+import { getBlogpageSettings } from "@/services/blogsettings.service";
 
 export const metadata: Metadata = {
   title: "OpenBlog",
@@ -16,6 +17,8 @@ export default async function RootLayout({
 }>) {
 
   const blogpage = await getBlogPage();
+  const settings = await getBlogpageSettings();
+
   return (
     <html lang="en">
       <body>
