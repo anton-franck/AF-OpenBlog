@@ -6,11 +6,25 @@ import {
     SheetTrigger,
     SheetClose,
 } from "@/components/ui/sheet"
-import { MenuIcon, X } from "lucide-react"
+import { ArrowLeft, MenuIcon, X } from "lucide-react"
 import Link from "next/link"
 
+interface HeaderProps {
+    navlinks: NavLinks[];
+    back: Back;
+}
 
-export const NavMenu = async () => {
+interface NavLinks {
+    name: string;
+    link: string;
+}
+
+interface Back {
+    fromothersite: boolean;
+    othersitelink: string;
+}
+
+export const NavMenu: React.FC<HeaderProps> = ({ navlinks, back }) => {
 
 
     return (
@@ -18,8 +32,10 @@ export const NavMenu = async () => {
             <div className="hidden lg:block ">
                 <div className="flex gap-4">
                     <Link href={"/"}>Home</Link>
-                    <Link href={"/Blog"}>Blog</Link>
-                    <Link href={"/"}>Custom</Link>
+                    <Link href={"/blog"}>Blog</Link>
+                    {navlinks.map((links, idx) => (
+                        <Link href={links.link} key={idx}>{links.name}</Link>
+                    ))}
                 </div>
             </div>
             <div className="lg:hidden">
@@ -40,7 +56,17 @@ export const NavMenu = async () => {
                                 </SheetClose>
                             </SheetTitle>
                             <div className="mx-auto flex flex-col gap-4 pt-6">
-
+                                <Link href={"/"}>Home</Link>
+                                <Link href={"/blog"}>Blog</Link>
+                                {navlinks.map((links, idx) => (
+                                    <Link href={links.link} key={idx}>{links.name}</Link>
+                                ))}
+                                {back.fromothersite && (
+                                    <div className="lg:flex items-center gap-2 hidden">
+                                        <ArrowLeft className="w-4" />
+                                        <Link className="font-bold" href={back.othersitelink || "/"} >Zurück zur Seite</Link>
+                                    </div>
+                                )}
                             </div>
                         </SheetHeader>
                     </SheetContent>

@@ -25,11 +25,24 @@ export interface ComponentsRichtext extends Struct.ComponentSchema {
   };
 }
 
+export interface HelpercomponentsNavlinks extends Struct.ComponentSchema {
+  collectionName: 'components_helpercomponents_navlinks';
+  info: {
+    displayName: 'navlinks';
+    icon: 'bulletList';
+  };
+  attributes: {
+    link: Schema.Attribute.String & Schema.Attribute.Required;
+    name: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
       'components.herobanner': ComponentsHerobanner;
       'components.richtext': ComponentsRichtext;
+      'helpercomponents.navlinks': HelpercomponentsNavlinks;
     }
   }
 }

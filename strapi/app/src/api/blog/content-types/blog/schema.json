@@ -1,0 +1,57 @@
+{
+  "kind": "singleType",
+  "collectionName": "blogs",
+  "info": {
+    "singularName": "blog",
+    "pluralName": "blogs",
+    "displayName": "Blogsettings"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "icon": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "name": {
+      "type": "string",
+      "default": "OpenBlog",
+      "required": true
+    },
+    "defaultseotitle": {
+      "type": "string",
+      "default": "OpenBlog by AF",
+      "required": true
+    },
+    "defaultseodescription": {
+      "type": "text",
+      "default": "Blogsite from OpenBlog",
+      "required": true
+    },
+    "fromothersite": {
+      "type": "boolean",
+      "required": false,
+      "default": false
+    },
+    "othersitelink": {
+      "type": "string"
+    },
+    "contactmail": {
+      "type": "email"
+    },
+    "siteadminname": {
+      "type": "string"
+    },
+    "NavLinks": {
+      "type": "component",
+      "component": "helpercomponents.navlinks",
+      "repeatable": true,
+      "required": false
+    }
+  }
+}

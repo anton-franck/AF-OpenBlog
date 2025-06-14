@@ -1,12 +1,9 @@
-import { getBlogPage } from "@/services/blogdata.service";
+import { getBlogPage } from "@/services/blogpage.service";
 import { getBlogposts } from "@/services/blogposts.service";
 import HeroSection from "@/components/HeroSection";
 import AllPosts from "@/components/posts";
-import Footer from "@/components/navigation/footer";
-import { Header } from "@/components/navigation/header";
 import FavBlogs from "@/components/favposts";
 import { Metadata } from "next";
-// import { getBlogpostById } from "@/services/idblogpost.service";
 
 export async function generateMetadata(): Promise<Metadata> {
   const pageMetaData = await getBlogPage()
@@ -19,15 +16,12 @@ export async function generateMetadata(): Promise<Metadata> {
 export default async function Home() {
   const blogpage = await getBlogPage();
   const blogposts = (await getBlogposts()).data;
-  // const blogdata = (await getBlogpostById(blogposts[0].documentId)).data;
 
   return (
     <div className="">
-      <Header blogpage={blogpage} />
       <HeroSection title={blogpage.title} description={blogpage.description} />
       <FavBlogs favBlogs={blogpage.favblogs} />
       <AllPosts posts={blogposts} />
-      <Footer icon={blogpage.icon.url} title={blogpage.title} />
     </div>
   );
 }
