@@ -1,7 +1,5 @@
-import Link from "next/link"
 import Image from "next/image";
-import { Button } from "../ui/button";
-import { MenuIcon } from "lucide-react";
+import { NavMenu } from "./navmenu";
 
 interface HeaderProps {
     blogpage: {
@@ -14,49 +12,23 @@ interface HeaderProps {
 
 export const Header: React.FC<HeaderProps> = ({ blogpage }) => {
     return (
-        < header className="border-b" >
+        < header className="border-b flex justify-center max-lg:px-5">
             <div className="container flex items-center justify-between py-4">
                 <div className="flex items-center gap-2">
                     <Image
                         src={blogpage.icon.url || "/placeholder.svg"}
                         alt={`${blogpage.title} Logo`}
-                        width={40}
-                        height={40}
-                        className="h-8 w-8 sm:h-10 sm:w-10"
+                        width={30}
+                        height={30}
+                        className="h-8 w-8 sm:h-8 sm:w-8"
                     />
-                    <h1 className="text-lg sm:text-2xl font-bold truncate">{blogpage.title}</h1>
+                    <h1 className="text-lg sm:text-xl font-bold truncate">{blogpage.title}</h1>
                 </div>
 
-                {/* Desktop Navigation */}
-                <nav className="hidden md:block">
-                    <ul className="flex items-center gap-6">
-                        <li>
-                            <Link href="/" className="font-medium hover:underline">
-                                Home
-                            </Link>
-                        </li>
-                        <li>
-                            <Link href="/blog" className="font-medium hover:underline">
-                                Blog
-                            </Link>
-                        </li>
-                        <li>
-                            <Link href="/about" className="font-medium hover:underline">
-                                Über uns
-                            </Link>
-                        </li>
-                        <li>
-                            <Link href="/contact" className="font-medium hover:underline">
-                                Kontakt
-                            </Link>
-                        </li>
-                    </ul>
-                </nav>
+                <NavMenu />
 
                 {/* Mobile Menu Button */}
-                <Button variant="ghost" size="sm" className="md:hidden">
-                    <MenuIcon className="h-5 w-5" />
-                </Button>
+
             </div>
         </header >
     )
