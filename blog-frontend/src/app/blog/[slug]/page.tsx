@@ -54,6 +54,7 @@ export default async function BlogDetailPage({
             <div className="my-20 text-center">
                 {blog.title}
                 {blog.id}
+                {JSON.stringify(blog)}
             </div>
         </div>
     );

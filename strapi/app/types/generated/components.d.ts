@@ -20,7 +20,7 @@ export interface ComponentsRichtext extends Struct.ComponentSchema {
     icon: 'bold';
   };
   attributes: {
-    text: Schema.Attribute.RichText;
+    text: Schema.Attribute.Blocks;
     title: Schema.Attribute.String;
   };
 }

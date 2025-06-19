@@ -6,8 +6,18 @@ import {
   STRAPI_API_KEY,
   STRAPI_URL,
 } from "@/lib/strapi-helpers";
+import { BlocksContent } from "@strapi/blocks-react-renderer";
 import { unstable_cache } from "next/cache";
 import qs from "qs";
+
+export interface RichtextBanner {
+  __component: "components.richtext";
+  id: number;
+  title: string;
+  text: BlocksContent;
+}
+
+export type Component = RichtextBanner;
 
 export interface BlogPost {
   data: {
@@ -19,6 +29,7 @@ export interface BlogPost {
     seotitle: string;
     seodescription: string;
     updatedAt: string;
+    components: Component[];
   };
 }
 
@@ -45,12 +56,11 @@ export const getBlogpostBySlug = async (
           },
           populate: {
             fields: "*",
-            blogimage: {
-              fields: populateImageFields,
-            },
-            labels: {
-              populate: {
-                fields: "*",
+            components: {
+              on: {
+                "components.richtext": {
+                  fields: "*",
+                },
               },
             },
           },
