@@ -13,6 +13,18 @@ export interface ComponentsHerobanner extends Struct.ComponentSchema {
   };
 }
 
+export interface ComponentsImagebanner extends Struct.ComponentSchema {
+  collectionName: 'components_components_imagebanners';
+  info: {
+    displayName: 'imagebanner';
+    icon: 'landscape';
+  };
+  attributes: {
+    image: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface ComponentsRichtext extends Struct.ComponentSchema {
   collectionName: 'components_components_richtexts';
   info: {
@@ -41,6 +53,7 @@ declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
       'components.herobanner': ComponentsHerobanner;
+      'components.imagebanner': ComponentsImagebanner;
       'components.richtext': ComponentsRichtext;
       'helpercomponents.navlinks': HelpercomponentsNavlinks;
     }

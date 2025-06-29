@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_components_imagebanners",
+  "info": {
+    "displayName": "imagebanner",
+    "icon": "landscape"
+  },
+  "options": {},
+  "attributes": {
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "title": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

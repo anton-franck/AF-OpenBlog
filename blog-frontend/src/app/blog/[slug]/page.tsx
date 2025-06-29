@@ -4,6 +4,7 @@ import { ArrowLeft } from "lucide-react";
 import { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { BannerRenderer } from "@/components/banner-renderer";
 
 export const revalidate = 1;
 
@@ -51,10 +52,12 @@ export default async function BlogDetailPage({
                 <Link href={"/"} className="flex items-center gap-2 p-2 w-fit"><ArrowLeft className="w-4" /> <p>Zurück zur Blogpage</p></Link>
                 <p className="flex justify-end p-2">Aktuallisiert: {new Date(blog.updatedAt).toLocaleDateString("de-DE")}</p>
             </div>
-            <div className="my-20 text-center">
-                {blog.title}
-                {blog.id}
+            <div className="">
                 {JSON.stringify(blog)}
+                {blog.components.map((component, idx) => (
+                    <BannerRenderer component={component} key={idx} />
+                ))}
+
             </div>
         </div>
     );
