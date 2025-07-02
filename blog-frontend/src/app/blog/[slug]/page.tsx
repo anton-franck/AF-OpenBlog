@@ -52,8 +52,7 @@ export default async function BlogDetailPage({
                 <Link href={"/"} className="flex items-center gap-2 p-2 w-fit"><ArrowLeft className="w-4" /> <p>Zurück zur Blogpage</p></Link>
                 <p className="flex justify-end p-2">Aktuallisiert: {new Date(blog.updatedAt).toLocaleDateString("de-DE")}</p>
             </div>
-            <div className="">
-                {JSON.stringify(blog)}
+            <div className="m-5">
                 {blog.components.map((component, idx) => (
                     <BannerRenderer component={component} key={idx} />
                 ))}

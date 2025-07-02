@@ -40,7 +40,8 @@
       "components": [
         "components.herobanner",
         "components.richtext",
-        "components.imagebanner"
+        "components.imagebanner",
+        "components.border"
       ]
     },
     "seotitle": {

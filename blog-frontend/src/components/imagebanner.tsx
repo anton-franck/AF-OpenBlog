@@ -15,7 +15,7 @@ export const ImageBanner: React.FC<ImageBannerProps> = ({ banner }: ImageBannerP
                 height={banner.image.height}
                 className="max-w-2xl object-cover max-h-[600px]"
             />
-            <p className="p-2 ">{banner.title}</p>
+            <p className="py-2 ">{banner.title}</p>
         </div>
     );
 };

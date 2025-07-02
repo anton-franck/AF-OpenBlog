@@ -1,5 +1,14 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface ComponentsBorder extends Struct.ComponentSchema {
+  collectionName: 'components_components_borders';
+  info: {
+    displayName: 'border';
+    icon: 'bulletList';
+  };
+  attributes: {};
+}
+
 export interface ComponentsHerobanner extends Struct.ComponentSchema {
   collectionName: 'components_components_herobanners';
   info: {
@@ -52,6 +61,7 @@ export interface HelpercomponentsNavlinks extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'components.border': ComponentsBorder;
       'components.herobanner': ComponentsHerobanner;
       'components.imagebanner': ComponentsImagebanner;
       'components.richtext': ComponentsRichtext;

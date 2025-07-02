@@ -28,9 +28,9 @@ export default function FavBlogs({ favBlogs }: FeaturedProps) {
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
                     {favBlogs.map((post) => (
                         <Link href={`/blog/${post.slug}`} key={post.id} >
-                            <Card key={post.id} className="overflow-hidden flex flex-col lg:flex-row h-full">
+                            <Card key={post.id} className="overflow-hidden flex flex-col lg:flex-row h-full max-w-[600px]">
 
-                                <div className="relative w-full lg:w-1/3 h-48 lg:h-auto min-h-[200px]">
+                                <div className="relative w-full max-w-[250px] h-48 lg:h-auto min-h-[150px]">
                                     {post.blogimage && (
                                         <Image src={post.blogimage.url} alt={post.title} fill className="object-cover" />
                                     )}

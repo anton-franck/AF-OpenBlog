@@ -17,6 +17,11 @@ export interface RichtextBanner {
   text: BlocksContent;
 }
 
+export interface Border {
+  __component: "components.border";
+  id: number;
+}
+
 export interface ImageBanner {
   __component: "components.imagebanner";
   id: number;
@@ -24,7 +29,7 @@ export interface ImageBanner {
   image: StrapiImage;
 }
 
-export type Component = RichtextBanner | ImageBanner;
+export type Component = RichtextBanner | ImageBanner | Border;
 
 export interface BlogPost {
   data: {
@@ -75,6 +80,9 @@ export const getBlogpostBySlug = async (
                       fields: populateImageFields,
                     },
                   },
+                },
+                "components.border": {
+                  fields: "*",
                 },
               },
             },

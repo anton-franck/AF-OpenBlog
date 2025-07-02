@@ -2,6 +2,7 @@ import type React from "react"
 import { Component } from "@/services/blogpostbyslug.service"
 import { RichTextBanner } from "./richtextbanner"
 import { ImageBanner } from "./imagebanner"
+import { Border } from "./border"
 
 
 interface BannerRendererProps {
@@ -14,6 +15,8 @@ export const BannerRenderer: React.FC<BannerRendererProps> = ({ component }) => 
             return <RichTextBanner content={component} />
         case "components.imagebanner":
             return <ImageBanner banner={component} />
+        case "components.border":
+            return <Border />
 
         default:
             return (
