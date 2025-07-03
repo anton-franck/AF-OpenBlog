@@ -11,11 +11,11 @@ export const RichTextBanner: React.FC<RichTextBannerProps> = ({ content }: RichT
 
 
     return (
-        <div className="p-4">
+        <div className="py-4 px-0 sm:px-4 max-lg:mx-auto">
             {content.title && (
-                <h3 className="text-2xl font-bold mb-4">{content.title}</h3>
+                <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold mb-4">{content.title}</h3>
             )}
-            <div className={"richtextbanner"}>
+            <div className="richtextbanner prose prose-sm sm:prose lg:prose-lg max-w-none">
                 <BlocksRenderer content={content.text} />
             </div>
         </div>

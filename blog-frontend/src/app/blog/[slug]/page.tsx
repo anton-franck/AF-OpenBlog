@@ -47,16 +47,20 @@ export default async function BlogDetailPage({
 
 
     return (
-        <div>
-            <div className="grid grid-cols-2">
-                <Link href={"/"} className="flex items-center gap-2 p-2 w-fit"><ArrowLeft className="w-4" /> <p>Zurück zur Blogpage</p></Link>
-                <p className="flex justify-end p-2">Aktuallisiert: {new Date(blog.updatedAt).toLocaleDateString("de-DE")}</p>
+        <div className="min-h-screen">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 sm:gap-4 p-3 sm:p-4 max-w-7xl mx-auto">
+                <Link href={"/"} className="flex items-center gap-2 w-fit text-sm sm:text-base hover:text-primary transition-colors">
+                    <ArrowLeft className="w-4 h-4" />
+                    <p>Zurück zur Blogpage</p>
+                </Link>
+                <p className="text-xs sm:text-sm text-muted-foreground">
+                    Aktualisiert: {new Date(blog.updatedAt).toLocaleDateString("de-DE")}
+                </p>
             </div>
-            <div className="m-5">
+            <div className="px-3 sm:px-5 lg:px-8  max-lg:mx-auto">
                 {blog.components.map((component, idx) => (
                     <BannerRenderer component={component} key={idx} />
                 ))}
-
             </div>
         </div>
     );

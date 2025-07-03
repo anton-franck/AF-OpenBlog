@@ -24,13 +24,13 @@ interface NavLinks {
 
 export const Header: React.FC<HeaderProps> = ({ settings, navlinks }) => {
     return (
-        < header className="border-b px-5">
-            <div className="grid grid-cols-2 py-4 items-center">
-                <div className="flex items-center gap-4 col-span-1">
+        < header className="border-b px-3 sm:px-5">
+            <div className="grid grid-cols-2 py-3 sm:py-4 items-center max-w-7xl mx-auto">
+                <div className="flex items-center gap-2 sm:gap-4 col-span-1">
                     {settings.fromothersite && (
                         <div className="lg:flex items-center gap-2 hidden">
                             <ArrowLeft className="w-4" />
-                            <Link className="font-bold" href={settings.othersitelink || "/"} >Zurück zur Seite</Link>
+                            <Link className="font-bold text-sm" href={settings.othersitelink || "/"} >Zurück zur Seite</Link>
                         </div>
                     )}
                     <Link href="/" className="flex items-center gap-2">
@@ -39,9 +39,9 @@ export const Header: React.FC<HeaderProps> = ({ settings, navlinks }) => {
                             alt={`${settings.name} Logo`}
                             width={30}
                             height={30}
-                            className="h-8 w-8 sm:h-8 sm:w-8"
+                            className="h-6 w-6 sm:h-8 sm:w-8"
                         />
-                        <p className="text-lg sm:text-xl font-bold truncate">{settings.name}</p>
+                        <p className="text-base sm:text-lg lg:text-xl font-bold truncate">{settings.name}</p>
                     </Link>
                 </div>
 

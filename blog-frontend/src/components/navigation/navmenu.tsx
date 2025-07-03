@@ -62,7 +62,7 @@ export const NavMenu: React.FC<HeaderProps> = ({ navlinks, back }) => {
                                     <Link href={links.link} key={idx}>{links.name}</Link>
                                 ))}
                                 {back.fromothersite && (
-                                    <div className="lg:flex items-center gap-2 hidden">
+                                    <div className="flex items-center gap-2">
                                         <ArrowLeft className="w-4" />
                                         <Link className="font-bold" href={back.othersitelink || "/"} >Zurück zur Seite</Link>
                                     </div>

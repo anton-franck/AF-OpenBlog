@@ -15,10 +15,23 @@
 }
 
 .richtextbanner h1 {
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-weight: bold;
     margin-bottom: 1rem;
 }
+
+@media (min-width: 640px) {
+    .richtextbanner h1 {
+        font-size: 2rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .richtextbanner h1 {
+        font-size: 2.25rem;
+    }
+}
+
 
 .richtextbanner h2 {
     font-size: 1.75rem;
