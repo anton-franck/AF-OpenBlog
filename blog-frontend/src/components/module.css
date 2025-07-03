@@ -1,0 +1,69 @@
+.richtextbanner li {
+    list-style: disc;
+}
+
+.richtextbanner ul {
+    margin-left: 15px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.richtextbanner ol {
+    margin-left: 15px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.richtextbanner h1 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+@media (min-width: 640px) {
+    .richtextbanner h1 {
+        font-size: 2rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .richtextbanner h1 {
+        font-size: 2.25rem;
+    }
+}
+
+
+.richtextbanner h2 {
+    font-size: 1.75rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.richtextbanner h3 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.richtextbanner h4 {
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+
+}
+
+.richtextbanner h5 {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.richtextbanner h6 {
+    font-size: 0.875rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.richtextbanner p {
+    margin-bottom: 1rem;
+}

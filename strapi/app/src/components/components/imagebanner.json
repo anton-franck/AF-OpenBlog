@@ -1,14 +1,15 @@
 {
-  "collectionName": "components_components_herobanners",
+  "collectionName": "components_components_imagebanners",
   "info": {
-    "displayName": "herobanner",
-    "icon": "picture"
+    "displayName": "imagebanner",
+    "icon": "landscape"
   },
   "options": {},
   "attributes": {
     "image": {
       "type": "media",
       "multiple": false,
+      "required": true,
       "allowedTypes": [
         "images"
       ]

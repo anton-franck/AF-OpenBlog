@@ -1,26 +1,20 @@
-import Link from "next/link";
-import Image from "next/image";
-import {
-    Card,
-    CardContent,
-    CardFooter,
-    CardHeader,
-    CardTitle,
-} from "@/components/ui/card";
-import { ArrowRightIcon, BookmarkIcon, CalendarIcon } from "lucide-react";
+import Link from "next/link"
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "./ui/card"
+import Image from "next/image"
+import { ArrowRightIcon, BookmarkIcon, CalendarIcon, HeartIcon } from "lucide-react"
 
-interface BlogCardProps {
+interface Post {
     post: {
-        id: number;
-        title: string;
-        slug: string;
-        description: string;
-        blogimage?: { url: string };
-        updatedAt: string;
-    };
+        id: number
+        title: string
+        slug: string
+        description: string
+        blogimage?: { url: string }
+        updatedAt: string
+    }
 }
 
-export const BlogCard: React.FC<BlogCardProps> = ({ post }) => {
+export const FavPostCard: React.FC<Post> = ({ post }: Post) => {
     return (
         <Link href={`/blog/${post.slug}`} key={post.id} className="group block h-full">
             <Card className="overflow-hidden h-full flex flex-col transition-all duration-300 hover:shadow-xl hover:-translate-y-1 border-0 shadow-md bg-card/50 backdrop-blur-sm pt-0 pb-2">
@@ -43,6 +37,13 @@ export const BlogCard: React.FC<BlogCardProps> = ({ post }) => {
                     )}
 
                     <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+
+                    <div className="absolute top-3 right-3">
+                        <div className="bg-primary/90 backdrop-blur-sm text-primary-foreground px-2 py-1 rounded-full text-xs font-medium flex items-center gap-1">
+                            <HeartIcon className="h-3 w-3 fill-current" />
+                            Favorit
+                        </div>
+                    </div>
                 </div>
 
                 <div className="flex flex-col flex-1 p-3">
@@ -76,5 +77,5 @@ export const BlogCard: React.FC<BlogCardProps> = ({ post }) => {
                 </div>
             </Card>
         </Link>
-    );
-};
+    )
+}

@@ -1,69 +1,50 @@
-import React from "react";
-import Image from "next/image";
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
-import { HeartIcon, CalendarIcon, BookmarkIcon } from "lucide-react";
-import Link from "next/link";
+import { HeartIcon, BookmarkIcon } from "lucide-react"
+import { FavPostCard } from "./favpost-card"
 
 interface Post {
-    id: number;
-    title: string;
-    slug: string;
-    description: string;
-    blogimage?: { url: string };
-    updatedAt: string;
+    id: number
+    title: string
+    slug: string
+    description: string
+    blogimage?: { url: string }
+    updatedAt: string
 }
-
 interface FeaturedProps {
-    favBlogs: Post[];
+    favBlogs: Post[]
 }
 
 export default function FavBlogs({ favBlogs }: FeaturedProps) {
     return (
-        <section className="pb-8 lg:pb-12 flex justify-center bg-muted">
-            <div className="container px-4">
-                <div className="flex items-center mb-6 sm:mb-8">
-                    <HeartIcon className="h-5 w-5 mr-2 text-primary" />
-                    <h2 className="text-2xl sm:text-3xl font-bold">Vorgeschlagene Beiträge</h2>
+        <section className="py-6 lg:py-8 bg-gradient-to-br from-background to-muted/30">
+            <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="flex items-center justify-center mb-6 lg:mb-8">
+                    <div className="flex items-center gap-3">
+                        <div className="p-2 rounded-full bg-primary/10">
+                            <HeartIcon className="h-6 w-6 text-primary" />
+                        </div>
+                        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
+                            Vorgeschlagene Beiträge
+                        </h2>
+                    </div>
                 </div>
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 lg:gap-6">
                     {favBlogs.map((post) => (
-                        <Link href={`/blog/${post.slug}`} key={post.id} >
-                            <Card key={post.id} className="overflow-hidden flex flex-col lg:flex-row h-full">
-
-                                <div className="relative w-full lg:w-1/3 h-48 lg:h-auto min-h-[200px]">
-                                    {post.blogimage && (
-                                        <Image src={post.blogimage.url} alt={post.title} fill className="object-cover" />
-                                    )}
-                                    <div className="w-full h-full bg-muted-foreground/10 flex items-center justify-center">
-                                        <span className="text-muted-foreground text-sm">Bild</span>
-                                    </div>
-                                </div>
-                                <div className="flex flex-col lg:w-2/3 p-4 lg:p-0">
-                                    <CardHeader className="pb-2 lg:pb-6">
-                                        <CardTitle className="line-clamp-2 text-lg sm:text-xl">{post.title}</CardTitle>
-                                    </CardHeader>
-                                    <CardContent className="pb-2 lg:pb-6">
-                                        <p className="text-muted-foreground line-clamp-3 text-sm sm:text-base">
-                                            {post.description}
-                                        </p>
-                                    </CardContent>
-                                    <CardFooter className="flex flex-col sm:flex-row justify-between mt-auto gap-2">
-                                        <div className="flex items-center text-xs sm:text-sm text-muted-foreground">
-                                            <CalendarIcon className="mr-1 h-3 w-3 sm:h-4 sm:w-4" />
-                                            {new Date(post.updatedAt).toLocaleDateString("de-DE")}
-                                        </div>
-                                        <div className="flex items-center text-xs sm:text-sm text-muted-foreground">
-                                            <BookmarkIcon className="mr-1 h-3 w-3 sm:h-4 sm:w-4" />
-                                            Favorit
-                                        </div>
-                                    </CardFooter>
-                                </div>
-
-                            </Card>
-                        </Link>
+                        <FavPostCard
+                            post={post}
+                            key={post.id}
+                        />
                     ))}
                 </div>
+
+                {favBlogs.length === 0 && (
+                    <div className="text-center py-12">
+                        <BookmarkIcon className="h-16 w-16 text-muted-foreground/50 mx-auto mb-4" />
+                        <h3 className="text-xl font-semibold text-muted-foreground mb-2">Keine Favoriten gefunden</h3>
+                        <p className="text-muted-foreground">Fügen Sie Ihre ersten Lieblingsbeiträge hinzu.</p>
+                    </div>
+                )}
             </div>
-        </section >
-    );
+        </section>
+    )
 }
