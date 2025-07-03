@@ -14,7 +14,7 @@ export const ImageBanner: React.FC<ImageBannerProps> = ({ banner }: ImageBannerP
                     alt={banner.title ?? banner.image.name}
                     width={banner.image.width}
                     height={banner.image.height}
-                    className="w-full h-auto object-cover rounded-lg shadow-md max-h-[400px] sm:max-h-[500px] lg:max-h-[600px]"
+                    className="w-full h-auto object-cover rounded-lg shadow-md max-h-[400px] sm:max-h-[500px] lg:max-h-[600px] max-w-[600px]"
                 />
             </div>
             {banner.title && (

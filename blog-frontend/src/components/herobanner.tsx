@@ -14,7 +14,7 @@ export const HeroBanner: React.FC<HeroBannerProps> = ({ banner }: HeroBannerProp
                         alt={banner.title ?? banner.image.name}
                         width={banner.image.width}
                         height={banner.image.height}
-                        className="w-full h-auto object-cover rounded-lg shadow-md max-h-[300px] sm:max-h-[400px] lg:max-h-[500px]"
+                        className="w-full h-auto max-w-[700px] object-cover rounded-lg shadow-md max-h-[300px] sm:max-h-[400px] lg:max-h-[500px]"
                     />
                 )}
                 <div className="absolute inset-0 flex items-end justify-start p-4 sm:p-6">

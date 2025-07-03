@@ -1,55 +1,58 @@
-import type { Schema, Struct } from '@strapi/strapi';
+import type { Schema, Struct } from "@strapi/strapi";
 
 export interface ComponentsBorder extends Struct.ComponentSchema {
-  collectionName: 'components_components_borders';
+  collectionName: "components_components_borders";
   info: {
-    displayName: 'border';
-    icon: 'bulletList';
+    displayName: "border";
+    icon: "bulletList";
   };
   attributes: {};
 }
 
 export interface ComponentsHerobanner extends Struct.ComponentSchema {
-  collectionName: 'components_components_herobanners';
+  collectionName: "components_components_herobanners";
   info: {
-    displayName: 'herobanner';
-    icon: 'picture';
+    displayName: "herobanner";
+    icon: "picture";
   };
   attributes: {
-    image: Schema.Attribute.Media<'images'>;
+    image: Schema.Attribute.Media<"images">;
     title: Schema.Attribute.String;
   };
 }
 
 export interface ComponentsImagebanner extends Struct.ComponentSchema {
-  collectionName: 'components_components_imagebanners';
+  collectionName: "components_components_imagebanners";
   info: {
-    displayName: 'imagebanner';
-    icon: 'landscape';
+    displayName: "imagebanner";
+    icon: "landscape";
   };
   attributes: {
-    image: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    image: Schema.Attribute.Media<"images"> & Schema.Attribute.Required;
     title: Schema.Attribute.String;
   };
 }
 
 export interface ComponentsRichtext extends Struct.ComponentSchema {
-  collectionName: 'components_components_richtexts';
+  collectionName: "components_components_richtexts";
   info: {
-    displayName: 'richtext';
-    icon: 'bold';
+    displayName: "richtext";
+    icon: "bold";
   };
   attributes: {
     text: Schema.Attribute.Blocks;
+    titlesize: Schema.Attribute.Enumeration<
+      ["h1", "h2", "h3", "h4", "h5", "h6"]
+    >;
     title: Schema.Attribute.String;
   };
 }
 
 export interface HelpercomponentsNavlinks extends Struct.ComponentSchema {
-  collectionName: 'components_helpercomponents_navlinks';
+  collectionName: "components_helpercomponents_navlinks";
   info: {
-    displayName: 'navlinks';
-    icon: 'bulletList';
+    displayName: "navlinks";
+    icon: "bulletList";
   };
   attributes: {
     link: Schema.Attribute.String & Schema.Attribute.Required;
@@ -57,14 +60,14 @@ export interface HelpercomponentsNavlinks extends Struct.ComponentSchema {
   };
 }
 
-declare module '@strapi/strapi' {
+declare module "@strapi/strapi" {
   export module Public {
     export interface ComponentSchemas {
-      'components.border': ComponentsBorder;
-      'components.herobanner': ComponentsHerobanner;
-      'components.imagebanner': ComponentsImagebanner;
-      'components.richtext': ComponentsRichtext;
-      'helpercomponents.navlinks': HelpercomponentsNavlinks;
+      "components.border": ComponentsBorder;
+      "components.herobanner": ComponentsHerobanner;
+      "components.imagebanner": ComponentsImagebanner;
+      "components.richtext": ComponentsRichtext;
+      "helpercomponents.navlinks": HelpercomponentsNavlinks;
     }
   }
 }

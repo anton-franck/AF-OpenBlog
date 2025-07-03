@@ -48,12 +48,12 @@ export default async function BlogDetailPage({
 
     return (
         <div className="min-h-screen">
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 sm:gap-4 p-3 sm:p-4 max-w-7xl mx-auto">
+            <div className="flex flex-col sm:grid sm:grid-cols-2 sm:items-center gap-2 sm:gap-4 p-3 sm:p-4 ">
                 <Link href={"/"} className="flex items-center gap-2 w-fit text-sm sm:text-base hover:text-primary transition-colors">
                     <ArrowLeft className="w-4 h-4" />
                     <p>Zurück zur Blogpage</p>
                 </Link>
-                <p className="text-xs sm:text-sm text-muted-foreground">
+                <p className="text-xs sm:text-sm sm:flex sm:justify-end text-muted-foreground">
                     Aktualisiert: {new Date(blog.updatedAt).toLocaleDateString("de-DE")}
                 </p>
             </div>
