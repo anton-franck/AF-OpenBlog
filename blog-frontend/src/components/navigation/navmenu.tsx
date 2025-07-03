@@ -34,6 +34,7 @@ export const NavMenu: React.FC<HeaderProps> = ({ navlinks, back }) => {
                     <Link href={"/"}>Home</Link>
                     <Link href={"/blog"}>Blog</Link>
                     {navlinks.map((links, idx) => (
+
                         <Link href={links.link} key={idx}>{links.name}</Link>
                     ))}
                 </div>
@@ -56,10 +57,20 @@ export const NavMenu: React.FC<HeaderProps> = ({ navlinks, back }) => {
                                 </SheetClose>
                             </SheetTitle>
                             <div className="mx-auto flex flex-col gap-4 pt-6">
-                                <Link href={"/"}>Home</Link>
-                                <Link href={"/blog"}>Blog</Link>
+                                <Link href={"/"}>
+                                    <SheetClose className="cursor-pointer" >
+                                        Home
+                                    </SheetClose></Link>
+                                <Link href={"/blog"}>
+                                    <SheetClose className="cursor-pointer" >Blog
+                                    </SheetClose>
+                                </Link>
                                 {navlinks.map((links, idx) => (
-                                    <Link href={links.link} key={idx}>{links.name}</Link>
+                                    <Link href={links.link} key={idx}>
+                                        <SheetClose className="cursor-pointer" >
+                                            {links.name}
+                                        </SheetClose>
+                                    </Link>
                                 ))}
                                 {back.fromothersite && (
                                     <div className="flex items-center gap-2">
