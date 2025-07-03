@@ -3,6 +3,7 @@ import { Component } from "@/services/blogpostbyslug.service"
 import { RichTextBanner } from "./richtextbanner"
 import { ImageBanner } from "./imagebanner"
 import { Border } from "./border"
+import { HeroBanner } from "./herobanner"
 
 
 interface BannerRendererProps {
@@ -17,6 +18,8 @@ export const BannerRenderer: React.FC<BannerRendererProps> = ({ component }) => 
             return <ImageBanner banner={component} />
         case "components.border":
             return <Border />
+        case "components.herobanner":
+            return <HeroBanner banner={component} />
 
         default:
             return (

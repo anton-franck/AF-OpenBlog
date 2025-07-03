@@ -16,8 +16,7 @@ export interface ComponentsHerobanner extends Struct.ComponentSchema {
     icon: 'picture';
   };
   attributes: {
-    description: Schema.Attribute.Text;
-    heroimage: Schema.Attribute.Media<'images'>;
+    image: Schema.Attribute.Media<'images'>;
     title: Schema.Attribute.String;
   };
 }

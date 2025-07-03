@@ -17,6 +17,13 @@ export interface RichtextBanner {
   text: BlocksContent;
 }
 
+export interface HeroBanner {
+  __component: "components.herobanner";
+  id: number;
+  title: string;
+  image: StrapiImage;
+}
+
 export interface Border {
   __component: "components.border";
   id: number;
@@ -29,7 +36,7 @@ export interface ImageBanner {
   image: StrapiImage;
 }
 
-export type Component = RichtextBanner | ImageBanner | Border;
+export type Component = RichtextBanner | ImageBanner | Border | HeroBanner;
 
 export interface BlogPost {
   data: {
@@ -74,6 +81,14 @@ export const getBlogpostBySlug = async (
                   fields: "*",
                 },
                 "components.imagebanner": {
+                  populate: {
+                    fields: "*",
+                    image: {
+                      fields: populateImageFields,
+                    },
+                  },
+                },
+                "components.herobanner": {
                   populate: {
                     fields: "*",
                     image: {
