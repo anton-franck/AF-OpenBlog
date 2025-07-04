@@ -3,6 +3,7 @@
 git clone https://github.com/anton-franck/AF-CMSNEXT-Blog.git
 
 cd AF-CMSNEXT-Blog
+git switch add-script
 
 read -p "Wie heißt dein Blog? " BLOG_NAME
 read -sp "Datenbank Root-Passwort: " DATABASE_ROOT_PASSWORD && echo
