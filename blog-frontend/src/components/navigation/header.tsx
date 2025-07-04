@@ -33,14 +33,17 @@ export const Header: React.FC<HeaderProps> = ({ settings, navlinks }) => {
                             <Link className="font-bold text-sm" href={settings.othersitelink || "/"} >Zurück zur Seite</Link>
                         </div>
                     )}
+
                     <Link href="/" className="flex items-center gap-2">
-                        <Image
-                            src={settings.icon.url || "/placeholder.svg"}
-                            alt={`${settings.name} Logo`}
-                            width={30}
-                            height={30}
-                            className="h-6 w-6 sm:h-8 sm:w-8"
-                        />
+                        {settings.icon && (
+                            <Image
+                                src={settings.icon?.url || "/placeholder.svg"}
+                                alt={`${settings.name} Logo`}
+                                width={30}
+                                height={30}
+                                className="h-6 w-6 sm:h-8 sm:w-8"
+                            />
+                        )}
                         <p className="text-base sm:text-lg lg:text-xl font-bold truncate">{settings.name}</p>
                     </Link>
                 </div>

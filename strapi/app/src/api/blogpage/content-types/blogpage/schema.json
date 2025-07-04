@@ -12,10 +12,13 @@
   "pluginOptions": {},
   "attributes": {
     "title": {
-      "type": "string"
+      "type": "string",
+      "default": "OpenBlog",
+      "required": true
     },
     "description": {
-      "type": "text"
+      "type": "text",
+      "required": false
     },
     "favblogs": {
       "type": "relation",
@@ -23,7 +26,9 @@
       "target": "api::blogentry.blogentry"
     },
     "seotitle": {
-      "type": "string"
+      "type": "string",
+      "default": "OpenBlog",
+      "required": true
     },
     "seodescription": {
       "type": "text"

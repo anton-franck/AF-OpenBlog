@@ -3,6 +3,7 @@ UNAME := $(shell uname)
 
 update:	update-docker install-strapi install-frontend
 up:	up-production
+up-strapi: up-strapi-db
 
 # production
 production-update: update-docker install-strapi  production-up production-restart-strapi
