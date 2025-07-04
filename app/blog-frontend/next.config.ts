@@ -10,6 +10,16 @@ const nextConfig: NextConfig = {
         port: "1338",
       },
       {
+        protocol: "http",
+        hostname: "strapi",
+        port: "1338",
+      },
+      {
+        protocol: "http",
+        hostname: "strapi",
+        port: "1337",
+      },
+      {
         protocol: "https",
         hostname: "laby.afnetwork.de",
       },

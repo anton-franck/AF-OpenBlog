@@ -42,9 +42,24 @@ services:
     command: ["npm", "run", "$STRAPI_EXEC_COMMAND"]
     volumes:
       - ./strapi/app:/app
+    ports:
+      - "1338:1337"
     depends_on:
       strapi-mariadb:
         condition: service_healthy
+
+  nodejs:
+    image: node:latest
+    container_name: nodejs
+    restart: always
+    volumes:
+      - ./app:/usr/src/app
+    working_dir: /usr/src/app/blog-frontend
+    command: sh -c "npm ci && npm run build && npm start"
+    ports:
+      - "80:3000"
+    depends_on:
+      - strapi
 
 networks:
   default:

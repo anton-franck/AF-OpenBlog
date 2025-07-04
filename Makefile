@@ -2,12 +2,13 @@ include .env
 UNAME := $(shell uname)
 
 # develop
-update: update-docker install-strapi db-dump-apply dump-public-apply up
+update: update-docker install-strapi  db-dump-apply dump-public-apply up
 up: up-develop
 apply-force: db-dump-apply-force dump-public-apply-force
 
 # production
-production-update: update-docker install-strapi production-up production-restart-strapi
+production-update: update-docker install-strapi  production-up production-restart-strapi
+up-production: production-up
 
 # contexts for production and develop
 install-env:
@@ -37,6 +38,14 @@ install-env:
 	grep -q "^STRAPI_APP_KEYS=" .env  || echo "STRAPI_APP_KEYS=\"\"" >> .env
 	grep -q "^STRAPI_API_TOKEN_SALT=" .env  || echo "STRAPI_API_TOKEN_SALT=\"\"" >> .env
 	grep -q "^STRAPI_TRANSFER_TOKEN_SALT=" .env  || echo "STRAPI_TRANSFER_TOKEN_SALT=\"\"" >> .env
+	grep -q "^# Frontend Configuration" .env  || echo "\n# Frontend Configuration" >> .env
+	grep -q "^FRONTEND_NODE_ENV=" .env  || echo "FRONTEND_NODE_ENV=\"production\"" >> .env
+	grep -q "^FRONTEND_BUILD_COMMAND=" .env  || echo "FRONTEND_BUILD_COMMAND=\"build\"" >> .env
+	grep -q "^FRONTEND_START_COMMAND=" .env  || echo "FRONTEND_START_COMMAND=\"start\"" >> .env
+	grep -q "^FRONTEND_PORT=" .env  || echo "FRONTEND_PORT=3000" >> .env
+	grep -q "^FRONTEND_STRAPI_URL=" .env  || echo "FRONTEND_STRAPI_URL=\"http://localhost:1337\"" >> .env
+	grep -q "^FRONTEND_STRAPI_API_KEY=" .env  || echo "FRONTEND_STRAPI_API_KEY=\"\"" >> .env
+
 
 install-strapi:
 
@@ -48,6 +57,12 @@ install-strapi:
 	if [ ${STRAPI_EXEC_COMMAND} = "start" ]; then \
 		docker compose run -i --rm strapi npm run build; \
 	fi
+
+install-frontend:
+	if [ ! -d "blog-frontend/node_modules" ]; then \
+		docker compose run -i --rm frontend npm i; \
+	fi
+
 
 log:
 	docker compose logs -f -n 10
@@ -69,6 +84,8 @@ up-develop:
 # contexts for production
 production-up:
 	docker compose up -d
+
+up-production: production-up
 	
 production-restart-strapi:
 	docker compose restart strapi
