@@ -1,14 +1,14 @@
 include .env
 UNAME := $(shell uname)
 
-# develop
-update: update-docker install-strapi  db-dump-apply dump-public-apply up
-up: up-develop
-apply-force: db-dump-apply-force dump-public-apply-force
+update: update-docker install-strapi install-frontend
+up: up-production
 
 # production
 production-update: update-docker install-strapi  production-up production-restart-strapi
 up-production: production-up
+frontend-update: update-docker install-frontend
+strapi-update: update-docker install-strapi
 
 # contexts for production and develop
 install-env:
@@ -60,9 +60,8 @@ install-strapi:
 
 install-frontend:
 	if [ ! -d "blog-frontend/node_modules" ]; then \
-		docker compose run -i --rm frontend npm i; \
+		docker compose run -i --rm frontend npm ci; \
 	fi
-
 
 log:
 	docker compose logs -f -n 10
@@ -70,10 +69,12 @@ log:
 down:
 	docker compose down
 
-shell:
+shell-strapi:
 	docker compose run -it --rm strapi sh
 
-# contexts for develop
+shell-frontend:
+	docker compose run -it --rm frontend sh
+
 update-docker:
 	docker compose pull
 	docker compose build --pull
@@ -81,11 +82,11 @@ update-docker:
 up-develop:
 	docker compose -f docker-compose.yml -f docker-compose.develop.yml up -d
 
-# contexts for production
 production-up:
 	docker compose up -d
 
-up-production: production-up
-	
-production-restart-strapi:
-	docker compose restart strapi
+up-strapi-db:
+	docker compose -f docker-compose.yml -f docker-compose.develop.yml up -d strapi strapi-mariadb
+
+production-restart:
+	docker compose restart strapi frontend
