@@ -1,9 +1,8 @@
 #!/bin/bash
 
-git clone https://github.com/anton-franck/AF-CMSNEXT-Blog.git
+git clone https://github.com/anton-franck/AF-OpenBlog.git
 
-cd AF-CMSNEXT-Blog
-git switch add-script
+cd AF-OpenBlog
 
 read -p "Wie heißt dein Blog? " BLOG_NAME
 read -sp "Datenbank Root-Passwort: " DATABASE_ROOT_PASSWORD && echo
