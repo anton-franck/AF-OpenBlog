@@ -43,21 +43,24 @@ services:
     volumes:
       - ./strapi/app:/app
     ports:
-      - "1338:1337"
+      - ${STRAPI_DEVELOP_DOCKER_PORT}
     depends_on:
       strapi-mariadb:
         condition: service_healthy
 
   nodejs:
-    image: node:latest
-    container_name: nodejs
+    image: node:22-alpine
+    container_name: ${COMPOSE_PROJECT_NAME}-frontend
     restart: always
+    environment:
+      STRAPI_URL: ${STRAPI_URL}
+      STRAPI_API_KEY: ${STRAPI_API_KEY}
     volumes:
-      - ./app:/usr/src/app
-    working_dir: /usr/src/app/blog-frontend
+      - ./blog-frontend:/usr/src/app
+    working_dir: /usr/src/app
     command: sh -c "npm ci && npm run build && npm start"
     ports:
-      - "80:3000"
+      - ${FRONTEND_PORT}
     depends_on:
       - strapi
 
