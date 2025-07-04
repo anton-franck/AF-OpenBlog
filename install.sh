@@ -20,14 +20,14 @@ touch .env
 	grep -q "^COMPOSE_PROJECT_NAME=" .env  || echo "COMPOSE_PROJECT_NAME=\"$BLOG_NAME\"" >> .env
 	grep -q "^DATABASE_ROOT_PASSWORD=" .env  || echo "DATABASE_ROOT_PASSWORD=\"$DATABASE_ROOT_PASSWORD\"" >> .env
 
-	grep -q "^# Strapi System" .env  || echo "\n# Strapi System" >> .env
+	grep -q "^# Strapi System" .env  || echo "# Strapi System" >> .env
 	grep -q "^STRAPI_NODE_ENV=" .env  || echo "STRAPI_NODE_ENV=\"production\"" >> .env
 	grep -q "^STRAPI_EXEC_COMMAND=" .env  || echo "STRAPI_EXEC_COMMAND=\"start\"" >> .env
 	grep -q "^STRAPI_HOST=" .env  || echo "STRAPI_HOST=\"0.0.0.0\"" >> .env
 	grep -q "^STRAPI_PORT=" .env  || echo "STRAPI_PORT=1337" >> .env
 	grep -q "^STRAPI_DEVELOP_DOCKER_PORT=" .env  || echo "STRAPI_DEVELOP_DOCKER_PORT=1338:1337" >> .env
 
-	grep -q "^# Strapi Database" .env  || echo "\n# Strapi Database" >> .env
+	grep -q "^# Strapi Database" .env  || echo "# Strapi Database" >> .env
 	grep -q "^STRAPI_DATABASE_CLIENT=" .env  || echo "STRAPI_DATABASE_CLIENT=\"mysql\"" >> .env
 	grep -q "^STRAPI_DATABASE_HOST=" .env  || echo "STRAPI_DATABASE_HOST=\"-mariadb\"" >> .env
 	grep -q "^STRAPI_DATABASE_PORT=" .env  || echo "STRAPI_DATABASE_PORT=\"3306\"" >> .env
@@ -35,7 +35,7 @@ touch .env
 	grep -q "^STRAPI_DATABASE_USERNAME=" .env  || echo "STRAPI_DATABASE_USERNAME=\"strapi\"" >> .env
 	grep -q "^STRAPI_DATABASE_PASSWORD=" .env  || echo "STRAPI_DATABASE_PASSWORD=\"$STRAPI_DATABASE_PASSWORD\"" >> .env
 
-	grep -q "^# Strapi Keys" .env  || echo "\n# Strapi Keys" >> .env
+	grep -q "^# Strapi Keys" .env  || echo "# Strapi Keys" >> .env
 	grep -q "^STRAPI_JWT_SECRET=" .env  || echo "STRAPI_JWT_SECRET=\"$STRAPI_JWT_SECRET\"" >> .env
 	grep -q "^STRAPI_APP_KEYS=" .env  || echo "STRAPI_APP_KEYS=\"$STRAPI_APP_KEYS\"" >> .env
     grep -q "^STRAPI_ADMIN_JWT_SECRET=" .env  || echo "STRAPI_ADMIN_JWT_SECRET=\"$STRAPI_ADMIN_JWT_SECRET\"" >> .env
