@@ -1,7 +1,7 @@
 include .env
 UNAME := $(shell uname)
 
-update:	update-docker install-strapi install-frontend
+update: update-repo update-docker install-strapi install-frontend
 up:	up-production
 up-strapi: up-strapi-db
 
@@ -43,6 +43,9 @@ update-docker:
 
 up-develop:
 	docker compose -f docker-compose.yml -f docker-compose.develop.yml up -d
+
+update-repo:
+	git fetch && git pull origin main
 
 production-up:
 	docker compose up -d
