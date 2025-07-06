@@ -1,9 +1,9 @@
 {
   "kind": "singleType",
-  "collectionName": "blogs",
+  "collectionName": "blogsetting",
   "info": {
-    "singularName": "blog",
-    "pluralName": "blogs",
+    "singularName": "blogsettings",
+    "pluralName": "blogsetting",
     "displayName": "Blogsettings"
   },
   "options": {
@@ -14,9 +14,7 @@
     "icon": {
       "type": "media",
       "multiple": false,
-      "allowedTypes": [
-        "images"
-      ]
+      "allowedTypes": ["images"]
     },
     "name": {
       "type": "string",
