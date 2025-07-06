@@ -2,3 +2,10 @@ services:
   strapi:
     ports:
       - ${STRAPI_DEVELOP_DOCKER_PORT}
+    command: ["npm", "run", "develop"]
+  frontend:
+    environment:
+      NODE_ENV: "development"
+    ports:
+      - "${FRONTEND_PORT}"
+    command: ["sh", "-c", "npm ci && npm run dev"]

@@ -9,6 +9,8 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     title: pageMetaData.defaultseotitle,
     description: pageMetaData.defaultseodescription,
+    icons:
+      pageMetaData.icon?.url
   }
 }
 
@@ -24,7 +26,7 @@ export default async function RootLayout({
       <body>
         <Header settings={settings} navlinks={settings.NavLinks} />
         {children}
-        <Footer icon={settings.icon.url} name={settings.name} />
+        <Footer icon={settings.icon?.url} name={settings.name} />
       </body>
     </html>
   );

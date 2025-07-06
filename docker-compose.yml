@@ -42,10 +42,28 @@ services:
     command: ["npm", "run", "$STRAPI_EXEC_COMMAND"]
     volumes:
       - ./strapi/app:/app
+    ports:
+      - ${STRAPI_DEVELOP_DOCKER_PORT}
     depends_on:
       strapi-mariadb:
         condition: service_healthy
 
+  frontend:
+    image: node:22-alpine
+    container_name: ${COMPOSE_PROJECT_NAME}-frontend
+    restart: always
+    environment:
+      STRAPI_URL: ${STRAPI_URL}
+      STRAPI_API_KEY: ${STRAPI_API_KEY}
+    volumes:
+      - ./blog-frontend:/usr/src/app
+    working_dir: /usr/src/app
+    command: sh -c "npm run build && npm start"
+    ports:
+      - ${FRONTEND_PORT}
+    depends_on:
+      - strapi
+
 networks:
   default:
-    name: ${COMPOSE_PROJECT_NAME}-strapi
+    name: ${COMPOSE_PROJECT_NAME}-blog-network

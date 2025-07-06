@@ -14,6 +14,7 @@ export interface RichtextBanner {
   __component: "components.richtext";
   id: number;
   title: string;
+  titlesize?: string;
   text: BlocksContent;
 }
 

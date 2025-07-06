@@ -1,6 +1,7 @@
 import { BlocksRenderer } from "@strapi/blocks-react-renderer";
 import { RichtextBanner as RichtextBannerType } from "@/services/blogpostbyslug.service";
 import "./module.css"; // Assuming you have a CSS module for styles
+import { Headline } from "./ui/headline";
 
 interface RichTextBannerProps {
     content: RichtextBannerType;
@@ -13,7 +14,10 @@ export const RichTextBanner: React.FC<RichTextBannerProps> = ({ content }: RichT
     return (
         <div className="py-4 px-0 sm:px-4 max-lg:mx-auto">
             {content.title && (
-                <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold mb-4">{content.title}</h3>
+                <Headline
+                    title={content.title}
+                    size={content.titlesize ?? "h2"}
+                    className="font-bold mb-4 sm:mb-6 lg:mb-8" />
             )}
             <div className="richtextbanner prose prose-sm sm:prose lg:prose-lg max-w-none">
                 <BlocksRenderer content={content.text} />
@@ -21,3 +25,4 @@ export const RichTextBanner: React.FC<RichTextBannerProps> = ({ content }: RichT
         </div>
     );
 }
+
