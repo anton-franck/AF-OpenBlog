@@ -34,13 +34,13 @@ touch .env
 	grep -q "^STRAPI_DATABASE_USERNAME=" .env  || echo "STRAPI_DATABASE_USERNAME=\"strapi\"" >> .env
 	grep -q "^STRAPI_DATABASE_PASSWORD=" .env  || echo "STRAPI_DATABASE_PASSWORD=\"$STRAPI_DATABASE_PASSWORD\"" >> .env
 
-	grep -q "^# Strapi Keys" .env  || echo "# Strapi Keys" >> .env
+	grep -q "# Strapi Keys" .env  || echo "# Strapi Keys" >> .env
 	grep -q "^STRAPI_JWT_SECRET=" .env  || echo "STRAPI_JWT_SECRET=\"$STRAPI_JWT_SECRET\"" >> .env
 	grep -q "^STRAPI_APP_KEYS=" .env  || echo "STRAPI_APP_KEYS=\"$STRAPI_APP_KEYS\"" >> .env
     grep -q "^STRAPI_ADMIN_JWT_SECRET=" .env  || echo "STRAPI_ADMIN_JWT_SECRET=\"$STRAPI_ADMIN_JWT_SECRET\"" >> .env
 	grep -q "^STRAPI_API_TOKEN_SALT=" .env  || echo "STRAPI_API_TOKEN_SALT=\"$STRAPI_API_TOKEN_SALT\"" >> .env
 	grep -q "^STRAPI_TRANSFER_TOKEN_SALT=" .env  || echo "STRAPI_TRANSFER_TOKEN_SALT=\"$STRAPI_TRANSFER_TOKEN_SALT\"" >> .env
-	grep -q "^# Frontend Configuration" .env  || echo "\n# Frontend Configuration" >> .env
+	grep -q "# Frontend Configuration" .env  || echo "\n# Frontend Configuration" >> .env
 	grep -q "^FRONTEND_PORT=" .env  || echo "FRONTEND_PORT=80:3000" >> .env
 	grep -q "^STRAPI_URL=" .env  || echo "STRAPI_URL=\"http://strapi:1337\"" >> .env
     grep -q "^STRAPI_API_KEY=" .env  || echo "STRAPI_API_KEY=\"\"" >> .env

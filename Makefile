@@ -23,9 +23,7 @@ install-strapi:
 	fi
 
 install-frontend:
-	if [ ! -d "blog-frontend/node_modules" ]; then \
-		docker compose run -i --rm frontend npm ci; \
-	fi
+	docker compose run -i --rm frontend npm ci;
 
 log:
 	docker compose logs -f -n 10
