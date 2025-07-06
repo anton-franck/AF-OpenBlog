@@ -1,4 +1,4 @@
-# AF-OpenBlog 1.0
+# AF-OpenBlog 0.1
 
 Ein modernes, vollständig dockerisiertes Blog-System mit Next.js Frontend und Strapi CMS Backend.
 
