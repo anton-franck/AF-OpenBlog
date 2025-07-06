@@ -1,13 +1,13 @@
 {
   "kind": "singleType",
-  "collectionName": "blogs",
+  "collectionName": "blogsetting",
   "info": {
-    "singularName": "blog",
-    "pluralName": "blogs",
+    "singularName": "blogsettings",
+    "pluralName": "blogsetting",
     "displayName": "Blogsettings"
   },
   "options": {
-    "draftAndPublish": true
+    "draftAndPublish": false
   },
   "pluginOptions": {},
   "attributes": {

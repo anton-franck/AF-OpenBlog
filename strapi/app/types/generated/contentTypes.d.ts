@@ -373,45 +373,6 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
-export interface ApiBlogBlog extends Struct.SingleTypeSchema {
-  collectionName: 'blogs';
-  info: {
-    displayName: 'Blogsettings';
-    pluralName: 'blogs';
-    singularName: 'blog';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    contactmail: Schema.Attribute.Email;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    defaultseodescription: Schema.Attribute.Text &
-      Schema.Attribute.Required &
-      Schema.Attribute.DefaultTo<'Blogsite from OpenBlog'>;
-    defaultseotitle: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.DefaultTo<'OpenBlog by AF'>;
-    fromothersite: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
-    icon: Schema.Attribute.Media<'images'>;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<'oneToMany', 'api::blog.blog'> &
-      Schema.Attribute.Private;
-    name: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.DefaultTo<'OpenBlog'>;
-    NavLinks: Schema.Attribute.Component<'helpercomponents.navlinks', true>;
-    othersitelink: Schema.Attribute.String;
-    publishedAt: Schema.Attribute.DateTime;
-    siteadminname: Schema.Attribute.String;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
 export interface ApiBlogentryBlogentry extends Struct.CollectionTypeSchema {
   collectionName: 'blogentries';
   info: {
@@ -462,7 +423,7 @@ export interface ApiBlogpageBlogpage extends Struct.SingleTypeSchema {
     singularName: 'blogpage';
   };
   options: {
-    draftAndPublish: true;
+    draftAndPublish: false;
   };
   attributes: {
     createdAt: Schema.Attribute.DateTime;
@@ -487,6 +448,48 @@ export interface ApiBlogpageBlogpage extends Struct.SingleTypeSchema {
     title: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<'OpenBlog'>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiBlogsettingsBlogsettings extends Struct.SingleTypeSchema {
+  collectionName: 'blogsetting';
+  info: {
+    displayName: 'Blogsettings';
+    pluralName: 'blogsetting';
+    singularName: 'blogsettings';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    contactmail: Schema.Attribute.Email;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    defaultseodescription: Schema.Attribute.Text &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'Blogsite from OpenBlog'>;
+    defaultseotitle: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'OpenBlog by AF'>;
+    fromothersite: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    icon: Schema.Attribute.Media<'images'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::blogsettings.blogsettings'
+    > &
+      Schema.Attribute.Private;
+    name: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'OpenBlog'>;
+    NavLinks: Schema.Attribute.Component<'helpercomponents.navlinks', true>;
+    othersitelink: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    siteadminname: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1031,9 +1034,9 @@ declare module '@strapi/strapi' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
-      'api::blog.blog': ApiBlogBlog;
       'api::blogentry.blogentry': ApiBlogentryBlogentry;
       'api::blogpage.blogpage': ApiBlogpageBlogpage;
+      'api::blogsettings.blogsettings': ApiBlogsettingsBlogsettings;
       'api::label.label': ApiLabelLabel;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;

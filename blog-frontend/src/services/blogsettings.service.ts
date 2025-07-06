@@ -52,12 +52,15 @@ export const getBlogpageSettings = async (): Promise<BlogPageSettings> => {
         });
 
         // For a Single Type, we don't need an ID in the URL
-        const response = await fetch(`${STRAPI_URL}/api/blog?${query}`, {
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${STRAPI_API_KEY}`,
-          },
-        });
+        const response = await fetch(
+          `${STRAPI_URL}/api/blogsettings?${query}`,
+          {
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${STRAPI_API_KEY}`,
+            },
+          }
+        );
 
         if (!response.ok) {
           throw new Error(`Failed to fetch blog settings: ${response.status}`);
