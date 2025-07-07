@@ -22,7 +22,7 @@ services:
   strapi:
     container_name: ${COMPOSE_PROJECT_NAME}-strapi
     hostname: ${COMPOSE_PROJECT_NAME}-strapi
-    image: node:18-alpine
+    image: node:22-alpine
     restart: unless-stopped
     environment:
       DATABASE_CLIENT: ${STRAPI_DATABASE_CLIENT}

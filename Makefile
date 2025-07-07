@@ -3,7 +3,6 @@ UNAME := $(shell uname)
 
 update: update-repo update-docker install-strapi install-frontend
 up:	up-production
-up-strapi: up-strapi-db
 
 # production
 production-update: update-docker install-strapi  production-up production-restart-strapi
@@ -50,7 +49,7 @@ update-repo:
 production-up:
 	docker compose up -d
 
-up-strapi-db:
+up-strapi:
 	docker compose -f docker-compose.yml -f docker-compose.develop.yml up -d strapi strapi-mariadb
 
 production-restart:

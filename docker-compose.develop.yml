@@ -8,4 +8,4 @@ services:
       NODE_ENV: "development"
     ports:
       - "${FRONTEND_PORT}"
-    command: ["sh", "-c", "npm ci && npm run dev"]
+    command: ["sh", "-c", "npm run dev"]
