@@ -11,8 +11,6 @@ Ein modernes, vollständig dockerisiertes Blog-System mit Next.js Frontend und S
 - [Installation](#installation)
 - [Entwicklung](#entwicklung)
 - [Produktion](#produktion)
-- [Projektstruktur](#projektstruktur)
-- [Mitwirkende](#mitwirkende)
 - [Lizenz](#lizenz)
 
 ## Überblick
