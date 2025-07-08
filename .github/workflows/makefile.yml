@@ -1,0 +1,43 @@
+name: Makefile CI
+
+on:
+  push:
+    branches: ["main", "realeses"]
+  pull_request:
+    branches: ["main", "realeses"]
+
+env:
+  COMPOSE_PROJECT_NAME: "openblog-test"
+  DATABASE_ROOT_PASSWORD: "1234567890"
+  STRAPI_NODE_ENV: "production"
+  STRAPI_EXEC_COMMAND: "start"
+  STRAPI_HOST: "0.0.0.0"
+  STRAPI_PORT: "1337"
+  STRAPI_DEVELOP_DOCKER_PORT: "1338:1337"
+  STRAPI_DATABASE_CLIENT: "mysql"
+  STRAPI_DATABASE_HOST: "laby-mariadb"
+  STRAPI_DATABASE_PORT: "3306"
+  STRAPI_DATABASE_NAME: "strapi"
+  STRAPI_DATABASE_USERNAME: "strapi"
+  STRAPI_DATABASE_PASSWORD: "123456789"
+  STRAPI_JWT_SECRET: "ZhkUNfnasdafdFCbNCaGvsdfgDIIJSD=IJSycHMIoOfI="
+  STRAPI_ADMIN_JWT_SECRET: "8PQQEiUw46XjMFHEKFNMGYiMWzXeDJSDIOSgSWLEvZe6X+fc="
+  STRAPI_APP_KEYS: "G7clZbAb33kT+5wH5HKgegwrfdOWPpuvwC2XPHsMMGVGKU="
+  STRAPI_API_TOKEN_SALT: "eYNqHz9xJYJXSHhMiCasdada0mcMwUF8TS=JD=)SDUw3agQms="
+  STRAPI_TRANSFER_TOKEN_SALT: "qIJinfccjibnIJBuzidyjbyjknnVAV9ZUciu9PwshdxDqEXw="
+  STRAPI_URL: "http://strapi:1337"
+  STRAPI_API_KEY: "3ed2398c3b43cdaf4f3253a10a9801sd23237d2be2d37c770ed6dsa23232f3fdf2231345ca66745r5f61d32d98ed03c1fa4f9362c7cacf4176baf5744153de160d48ace48461377f8c6ad1c4f2effb149130dafe56287dc6245cfafb3ccdbff895a7c0f0a42e5e4be88ff9c4683b0b97e774e47445e1ca0a7d8ec2897d4117ab9dd1a5cf29b"
+  FRONTEND_PORT: "80:3000"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: install
+        run: make update
+
+      - name: start
+        run: make up-strapi
