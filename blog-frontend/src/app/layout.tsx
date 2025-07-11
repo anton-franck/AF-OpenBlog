@@ -3,14 +3,16 @@ import "./globals.css";
 import { Header } from "@/components/navigation/header";
 import Footer from "@/components/navigation/footer";
 import { getBlogpageSettings } from "@/services/blogsettings.service";
+import { processStrapiMediaUrls } from "@/lib/strapi-helpers";
 
 export async function generateMetadata(): Promise<Metadata> {
   const pageMetaData = await getBlogpageSettings()
+  const processedMetaData = processStrapiMediaUrls(pageMetaData)
   return {
-    title: pageMetaData.defaultseotitle,
-    description: pageMetaData.defaultseodescription,
+    title: processedMetaData.defaultseotitle,
+    description: processedMetaData.defaultseodescription,
     icons:
-      pageMetaData.icon?.url
+      processedMetaData.icon?.url
   }
 }
 
