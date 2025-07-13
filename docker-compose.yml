@@ -55,6 +55,7 @@ services:
     environment:
       STRAPI_URL: ${STRAPI_URL}
       STRAPI_API_KEY: ${STRAPI_API_KEY}
+      STRAPI_OPEN_URL: ${STRAPI_OPEN_URL}
     volumes:
       - ./blog-frontend:/usr/src/app
     working_dir: /usr/src/app
