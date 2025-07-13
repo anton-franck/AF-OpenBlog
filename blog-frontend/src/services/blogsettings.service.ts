@@ -4,6 +4,7 @@ import {
   populateImageFields,
   processStrapiMediaUrls,
   STRAPI_API_KEY,
+  STRAPI_OPEN_URL,
   STRAPI_URL,
 } from "@/lib/strapi-helpers";
 import { unstable_cache } from "next/cache";
@@ -20,6 +21,7 @@ export interface BlogPageSettings {
   siteadminname: string;
   icon: StrapiImage;
   NavLinks: NavLinks[];
+  favicon?: string;
 }
 
 interface NavLinks {
@@ -68,7 +70,8 @@ export const getBlogpageSettings = async (): Promise<BlogPageSettings> => {
 
         const responseData = await response.json();
         const blogsettings = responseData.data as BlogPageSettings;
-        return processStrapiMediaUrls(blogsettings);
+        const favicon = STRAPI_OPEN_URL + blogsettings.icon.url;
+        return { ...processStrapiMediaUrls(blogsettings), favicon };
       } catch (error) {
         console.error("Error fetching blog page:", error);
         throw error;

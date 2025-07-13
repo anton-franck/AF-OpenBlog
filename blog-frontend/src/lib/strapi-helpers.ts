@@ -1,5 +1,7 @@
 export const STRAPI_URL = process.env.STRAPI_URL || "";
 export const STRAPI_API_KEY = process.env.STRAPI_API_KEY || "";
+export const STRAPI_OPEN_URL =
+  process.env.STRAPI_OPEN_URL || "http://strapi:1337";
 
 export type Image = {
   data: {

@@ -7,6 +7,7 @@ cd AF-OpenBlog
 read -p "Wie heißt dein Blog? " BLOG_NAME
 read -sp "Datenbank Root-Passwort: " DATABASE_ROOT_PASSWORD && echo
 read -sp "Datenbank Benutzer-Passwort: " STRAPI_DATABASE_PASSWORD && echo
+read -p "Wie soll die Open Strapi URL sein bsp: strapi.test.test: " STRAPI_OPEN_URL
 
 STRAPI_JWT_SECRET=$(openssl rand -base64 32)
 STRAPI_ADMIN_JWT_SECRET=$(openssl rand -base64 32)
@@ -44,5 +45,6 @@ touch .env
 	grep -q "^FRONTEND_PORT=" .env  || echo "FRONTEND_PORT=80:3000" >> .env
 	grep -q "^STRAPI_URL=" .env  || echo "STRAPI_URL=\"http://strapi:1337\"" >> .env
     grep -q "^STRAPI_API_KEY=" .env  || echo "STRAPI_API_KEY=\"\"" >> .env
+	grep -q "^STRAPI_OPEN_URL=" .env  || echo "STRAPI_OPEN_URL=\"$STRAPI_OPEN_URL\"" >> .env
 
 make update
