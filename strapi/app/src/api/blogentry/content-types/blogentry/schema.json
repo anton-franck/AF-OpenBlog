@@ -41,7 +41,9 @@
         "components.herobanner",
         "components.richtext",
         "components.imagebanner",
-        "components.border"
+        "components.border",
+        "components.button",
+        "components.accordion"
       ]
     },
     "seotitle": {

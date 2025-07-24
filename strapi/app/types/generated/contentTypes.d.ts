@@ -391,6 +391,8 @@ export interface ApiBlogentryBlogentry extends Struct.CollectionTypeSchema {
         'components.richtext',
         'components.imagebanner',
         'components.border',
+        'components.button',
+        'components.accordion',
       ]
     >;
     createdAt: Schema.Attribute.DateTime;

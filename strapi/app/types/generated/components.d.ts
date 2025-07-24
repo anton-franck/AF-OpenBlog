@@ -1,5 +1,21 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface ComponentsAccordion extends Struct.ComponentSchema {
+  collectionName: 'components_components_accordions';
+  info: {
+    displayName: 'accordion';
+    icon: 'bulletList';
+  };
+  attributes: {
+    Accordiocontent: Schema.Attribute.Component<
+      'helpercomponents.accordion-content',
+      true
+    >;
+    subtitle: Schema.Attribute.Text;
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface ComponentsBorder extends Struct.ComponentSchema {
   collectionName: 'components_components_borders';
   info: {
@@ -7,6 +23,18 @@ export interface ComponentsBorder extends Struct.ComponentSchema {
     icon: 'bulletList';
   };
   attributes: {};
+}
+
+export interface ComponentsButton extends Struct.ComponentSchema {
+  collectionName: 'components_components_buttons';
+  info: {
+    displayName: 'button';
+    icon: 'cursor';
+  };
+  attributes: {
+    link: Schema.Attribute.String;
+    title: Schema.Attribute.String;
+  };
 }
 
 export interface ComponentsHerobanner extends Struct.ComponentSchema {
@@ -48,6 +76,20 @@ export interface ComponentsRichtext extends Struct.ComponentSchema {
   };
 }
 
+export interface HelpercomponentsAccordionContent
+  extends Struct.ComponentSchema {
+  collectionName: 'components_helpercomponents_accordion_contents';
+  info: {
+    displayName: 'accordion-content';
+    icon: 'filter';
+  };
+  attributes: {
+    content: Schema.Attribute.Blocks;
+    image: Schema.Attribute.Media<'images'>;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface HelpercomponentsNavlinks extends Struct.ComponentSchema {
   collectionName: 'components_helpercomponents_navlinks';
   info: {
@@ -63,10 +105,13 @@ export interface HelpercomponentsNavlinks extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'components.accordion': ComponentsAccordion;
       'components.border': ComponentsBorder;
+      'components.button': ComponentsButton;
       'components.herobanner': ComponentsHerobanner;
       'components.imagebanner': ComponentsImagebanner;
       'components.richtext': ComponentsRichtext;
+      'helpercomponents.accordion-content': HelpercomponentsAccordionContent;
       'helpercomponents.navlinks': HelpercomponentsNavlinks;
     }
   }
