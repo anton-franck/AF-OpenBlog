@@ -25,6 +25,28 @@ export interface HeroBanner {
   image: StrapiImage;
 }
 
+export interface Button {
+  __component: "components.button";
+  id: number;
+  title: string;
+  link: string;
+}
+
+export interface AccordionBanner {
+  __component: "components.accordion";
+  id: number;
+  title: string;
+  subtitle: string;
+  AccordionContent: AccordionItem[];
+}
+
+interface AccordionItem {
+  id: number;
+  title: string;
+  content: BlocksContent;
+  image?: StrapiImage;
+}
+
 export interface Border {
   __component: "components.border";
   id: number;
@@ -37,7 +59,13 @@ export interface ImageBanner {
   image: StrapiImage;
 }
 
-export type Component = RichtextBanner | ImageBanner | Border | HeroBanner;
+export type Component =
+  | RichtextBanner
+  | ImageBanner
+  | Border
+  | HeroBanner
+  | AccordionBanner
+  | Button;
 
 export interface BlogPost {
   data: {
@@ -99,6 +127,22 @@ export const getBlogpostBySlug = async (
                 },
                 "components.border": {
                   fields: "*",
+                },
+                "components.button": {
+                  fields: "*",
+                },
+                "components.accordion": {
+                  populate: {
+                    fields: "*",
+                    AccordionContent: {
+                      populate: {
+                        fields: "*",
+                        image: {
+                          fields: populateImageFields,
+                        },
+                      },
+                    },
+                  },
                 },
               },
             },

@@ -7,7 +7,7 @@ export interface ComponentsAccordion extends Struct.ComponentSchema {
     icon: 'bulletList';
   };
   attributes: {
-    Accordiocontent: Schema.Attribute.Component<
+    AccordionContent: Schema.Attribute.Component<
       'helpercomponents.accordion-content',
       true
     >;

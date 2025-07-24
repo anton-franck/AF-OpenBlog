@@ -4,6 +4,8 @@ import { RichTextBanner } from "./richtextbanner"
 import { ImageBanner } from "./imagebanner"
 import { Border } from "./border"
 import { HeroBanner } from "./herobanner"
+import { ButtonComponent } from "./buttonbanner"
+import { AccordionBanner } from "./accordionbanner"
 
 
 interface BannerRendererProps {
@@ -20,6 +22,10 @@ export const BannerRenderer: React.FC<BannerRendererProps> = ({ component }) => 
             return <Border />
         case "components.herobanner":
             return <HeroBanner banner={component} />
+        case "components.button":
+            return <ButtonComponent banner={component} />
+        case "components.accordion":
+            return <AccordionBanner banner={component} />
 
         default:
             return (

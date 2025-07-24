@@ -12,7 +12,7 @@
     "subtitle": {
       "type": "text"
     },
-    "Accordiocontent": {
+    "AccordionContent": {
       "type": "component",
       "component": "helpercomponents.accordion-content",
       "repeatable": true
