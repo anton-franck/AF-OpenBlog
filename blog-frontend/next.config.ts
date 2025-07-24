@@ -21,7 +21,7 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: "https",
-        hostname: "laby.afnetwork.de",
+        hostname: "ruby.afnetwork.de",
       },
     ],
   },
