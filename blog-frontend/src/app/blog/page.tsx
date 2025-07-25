@@ -1,6 +1,5 @@
 import { getBlogPage } from "@/services/blogpage.service";
 import { getBlogposts } from "@/services/blogposts.service";
-import AllPosts from "@/components/posts";
 import { Metadata } from "next";
 import { getBlogLabels } from "@/services/labels.service";
 import { BlogEntryRenderer } from "./blogrentrie-renderer";
