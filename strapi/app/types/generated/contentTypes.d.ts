@@ -399,7 +399,7 @@ export interface ApiBlogentryBlogentry extends Struct.CollectionTypeSchema {
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     description: Schema.Attribute.Text;
-    labels: Schema.Attribute.Relation<'oneToMany', 'api::label.label'>;
+    label: Schema.Attribute.Relation<'manyToOne', 'api::label.label'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -509,8 +509,8 @@ export interface ApiLabelLabel extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    blogentry: Schema.Attribute.Relation<
-      'manyToOne',
+    blogentries: Schema.Attribute.Relation<
+      'oneToMany',
       'api::blogentry.blogentry'
     >;
     createdAt: Schema.Attribute.DateTime;

@@ -4,7 +4,7 @@ import { ArrowLeft } from "lucide-react";
 import { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { BannerRenderer } from "@/components/banner-renderer";
+import { BannerRenderer } from "@/components/blogcomponents/banner-renderer";
 
 export const revalidate = 1;
 

@@ -18,7 +18,7 @@ export interface BlogPosts {
     blogimage: StrapiImage;
     slug: string;
     updatedAt: string;
-    labels?: BlogLabel[];
+    label?: BlogLabel[];
   }[];
 }
 
@@ -63,7 +63,7 @@ export const getBlogposts = async (): Promise<BlogPosts> => {
             blogimage: {
               fields: populateImageFields,
             },
-            labels: {
+            label: {
               populate: {
                 fields: "*",
               },

@@ -2,6 +2,8 @@ import { getBlogPage } from "@/services/blogpage.service";
 import { getBlogposts } from "@/services/blogposts.service";
 import AllPosts from "@/components/posts";
 import { Metadata } from "next";
+import { getBlogLabels } from "@/services/labels.service";
+import { BlogEntryRenderer } from "./blogrentrie-renderer";
 
 export async function generateMetadata(): Promise<Metadata> {
     const pageMetaData = await getBlogPage()
@@ -12,11 +14,12 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function Home() {
-    const blogposts = (await getBlogposts()).data;
+    const blogposts = (await getBlogposts());
+    const labels = (await getBlogLabels());
 
     return (
         <div className="">
-            <AllPosts posts={blogposts} />
+            <BlogEntryRenderer blogPosts={blogposts} blogLabels={labels} />
         </div>
     );
 }
