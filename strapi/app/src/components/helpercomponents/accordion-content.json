@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_helpercomponents_accordion_contents",
+  "info": {
+    "displayName": "accordion-content",
+    "icon": "filter"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "content": {
+      "type": "blocks"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    }
+  },
+  "config": {}
+}

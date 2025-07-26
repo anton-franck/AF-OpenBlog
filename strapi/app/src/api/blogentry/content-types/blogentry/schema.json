@@ -15,11 +15,11 @@
       "type": "string",
       "required": true
     },
-    "labels": {
+    "label": {
       "type": "relation",
-      "relation": "oneToMany",
+      "relation": "manyToOne",
       "target": "api::label.label",
-      "mappedBy": "blogentry"
+      "inversedBy": "blogentries"
     },
     "slug": {
       "type": "string",
@@ -41,7 +41,9 @@
         "components.herobanner",
         "components.richtext",
         "components.imagebanner",
-        "components.border"
+        "components.border",
+        "components.button",
+        "components.accordion"
       ]
     },
     "seotitle": {

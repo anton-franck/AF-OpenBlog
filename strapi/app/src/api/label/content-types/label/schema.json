@@ -14,11 +14,11 @@
     "title": {
       "type": "string"
     },
-    "blogentry": {
+    "blogentries": {
       "type": "relation",
-      "relation": "manyToOne",
+      "relation": "oneToMany",
       "target": "api::blogentry.blogentry",
-      "inversedBy": "labels"
+      "mappedBy": "label"
     }
   }
 }
