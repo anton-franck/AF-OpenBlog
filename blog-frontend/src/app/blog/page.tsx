@@ -8,7 +8,7 @@ export async function generateMetadata(): Promise<Metadata> {
     const pageMetaData = await getBlogPage()
     return {
         title: pageMetaData.title + " - Blogs",
-        description: "Blog posts and articles on various topics",
+        description: pageMetaData.title + " | Alle Blogeinträge",
     }
 }
 

@@ -2,7 +2,6 @@ import { getBlogPage } from "@/services/blogpage.service";
 import { getBlogposts } from "@/services/blogposts.service";
 import HeroSection from "@/components/blogui/HeroSection";
 import { Metadata } from "next";
-import { PostRenderer } from "@/components/blogui/blogrentrie-renderer";
 import FavBlogs from "@/components/blogui/favposts";
 import { NewBlogs } from "@/components/blogui/newest-posts";
 
