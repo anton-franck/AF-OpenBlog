@@ -7,6 +7,7 @@ import {
 } from "@/components/ui/accordion"
 import { BlocksRenderer } from "@strapi/blocks-react-renderer";
 import Image from "next/image";
+import "./module.css";
 
 interface AccordionBannerProps {
     banner: AccordionBannerType;
@@ -39,7 +40,7 @@ export const AccordionBanner: React.FC<AccordionBannerProps> = ({ banner }) => {
                                     />
                                 </div>
                             )}
-                            <div className="prose prose-sm max-w-none">
+                            <div className="richtextbanner prose prose-sm max-w-none">
                                 <BlocksRenderer content={item.content} />
                             </div>
                         </AccordionContent>
