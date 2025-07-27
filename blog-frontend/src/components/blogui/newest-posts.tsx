@@ -12,8 +12,8 @@ export const NewBlogs = ({ posts }: AllProps) => {
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="grid grid-cols-2 sm:flex-row sm:items-center justify-between gap-4">
                     <h4 className="text-2xl sm:text-3xl font-bold my-4">Neuste Beiträge</h4>
-                    <div className="flex justify-end"><Button className="cursor-pointer" >
-                        <Link href="/blog">Alle anzeigen</Link></Button></div>
+                    <div className="flex justify-end"><Link href="/blog"><Button className="cursor-pointer" >
+                        Alle anzeigen</Button></Link></div>
                 </div>
                 <PostRenderer posts={posts.slice(0, 6)} />
             </div>
