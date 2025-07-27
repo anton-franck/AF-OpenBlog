@@ -1,6 +1,6 @@
 "use client";
 
-import { BlogCard } from "@/components/blog-card";
+import { BlogCard } from "@/components/blogui/blog-card";
 import { BlogPosts as BlogPostListType } from "@/services/blogposts.service";
 import { BlogLabels as BlogLabelListType } from "@/services/labels.service";
 import { useState } from "react";
@@ -52,7 +52,7 @@ interface Post { id: number; title: string; description: string; blogimage?: { u
 
 interface AllProps { posts: Post[]; }
 
-const PostRenderer = ({ posts }: AllProps) => {
+export const PostRenderer = ({ posts }: AllProps) => {
     return (
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 ">

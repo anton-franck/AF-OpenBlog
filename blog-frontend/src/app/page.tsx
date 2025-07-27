@@ -1,9 +1,10 @@
 import { getBlogPage } from "@/services/blogpage.service";
 import { getBlogposts } from "@/services/blogposts.service";
-import HeroSection from "@/components/HeroSection";
-import AllPosts from "@/components/posts";
-import FavBlogs from "@/components/favposts";
+import HeroSection from "@/components/blogui/HeroSection";
 import { Metadata } from "next";
+import { PostRenderer } from "@/components/blogui/blogrentrie-renderer";
+import FavBlogs from "@/components/blogui/favposts";
+import { NewBlogs } from "@/components/blogui/newest-posts";
 
 export async function generateMetadata(): Promise<Metadata> {
   const pageMetaData = await getBlogPage()
@@ -18,10 +19,10 @@ export default async function Home() {
   const blogposts = (await getBlogposts()).data;
 
   return (
-    <div className="">
+    <div>
       <HeroSection title={blogpage.title} description={blogpage.description} />
       <FavBlogs favBlogs={blogpage.favblogs} />
-      <AllPosts posts={blogposts} />
+      <NewBlogs posts={blogposts} />
     </div>
   );
 }

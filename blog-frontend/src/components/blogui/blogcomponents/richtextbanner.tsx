@@ -1,7 +1,7 @@
 import { BlocksRenderer } from "@strapi/blocks-react-renderer";
 import { RichtextBanner as RichtextBannerType } from "@/services/blogpostbyslug.service";
 import "./module.css"; // Assuming you have a CSS module for styles
-import { Headline } from "../ui/headline";
+import { Headline } from "../../ui/headline";
 
 interface RichTextBannerProps {
     content: RichtextBannerType;

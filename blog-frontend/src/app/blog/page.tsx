@@ -2,7 +2,7 @@ import { getBlogPage } from "@/services/blogpage.service";
 import { getBlogposts } from "@/services/blogposts.service";
 import { Metadata } from "next";
 import { getBlogLabels } from "@/services/labels.service";
-import { BlogEntryRenderer } from "./blogrentrie-renderer";
+import { BlogEntryRenderer } from "../../components/blogui/blogrentrie-renderer";
 
 export async function generateMetadata(): Promise<Metadata> {
     const pageMetaData = await getBlogPage()

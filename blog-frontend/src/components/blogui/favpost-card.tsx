@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "./ui/card"
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import Image from "next/image"
 import { ArrowRightIcon, BookmarkIcon, CalendarIcon, HeartIcon } from "lucide-react"
 
