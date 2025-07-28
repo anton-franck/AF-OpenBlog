@@ -32,7 +32,7 @@ export const NavMenu: React.FC<HeaderProps> = ({ navlinks, back }) => {
             <div className="hidden lg:block ">
                 <div className="flex gap-4">
                     <Link href={"/"}>Home</Link>
-                    <Link href={"/blog"}>Blog</Link>
+                    <Link href={"/blog"}>Blogs</Link>
                     {navlinks.map((links, idx) => (
 
                         <Link href={links.link} key={idx}>{links.name}</Link>
@@ -62,7 +62,7 @@ export const NavMenu: React.FC<HeaderProps> = ({ navlinks, back }) => {
                                         Home
                                     </SheetClose></Link>
                                 <Link href={"/blog"}>
-                                    <SheetClose className="cursor-pointer" >Blog
+                                    <SheetClose className="cursor-pointer" >Blogs
                                     </SheetClose>
                                 </Link>
                                 {navlinks.map((links, idx) => (

@@ -1,4 +1,6 @@
 import type { NextConfig } from "next";
+const foropenurl = process.env.STRAPI_OPEN_URL || "http://strapi:1337";
+const openurl = foropenurl.replace(/^https?:\/\//, "");
 
 const nextConfig: NextConfig = {
   /* config options here */
@@ -21,7 +23,7 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: "https",
-        hostname: "ruby.afnetwork.de",
+        hostname: openurl,
       },
     ],
   },
