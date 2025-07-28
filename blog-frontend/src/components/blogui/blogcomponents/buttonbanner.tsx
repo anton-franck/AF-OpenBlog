@@ -10,11 +10,11 @@ interface ButtonProps {
 export const ButtonComponent: React.FC<ButtonProps> = ({ banner }) => {
     return (
         <div className='py-4 px-0 sm:px-4'>
-            <Button >
-                <Link aria-label={banner.title + " link"} href={banner.link}>
+            <Link aria-label={banner.title + " link"} href={banner.link} >
+                <Button className='cursor-pointer'>
                     {banner.title}
-                </Link>
-            </Button>
-        </div>
+                </Button>
+            </Link>
+        </div >
     );
-}
+};

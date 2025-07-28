@@ -25,7 +25,7 @@ export const AccordionBanner: React.FC<AccordionBannerProps> = ({ banner }) => {
             <Accordion type="single" collapsible className="bg-white border border-gray-200 rounded-lg shadow-sm overflow-hidden">
                 {banner.AccordionContent.map((item, index) => (
                     <AccordionItem key={index} value={`item-${item.id}`} className="border-b border-gray-100 last:border-b-0">
-                        <AccordionTrigger className="cursor-pointer px-6 py-4 hover:bg-gray-50 transition-colors duration-200 text-left font-medium text-gray-900">
+                        <AccordionTrigger className="cursor-pointer px-6 py-4 hover:no-underline hover:bg-gray-50 transition-colors duration-200 text-left font-medium text-gray-900">
                             {item.title}
                         </AccordionTrigger>
                         <AccordionContent className="px-6 py-4 bg-gray-50/50">
