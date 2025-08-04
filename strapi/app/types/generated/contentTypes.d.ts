@@ -393,6 +393,7 @@ export interface ApiBlogentryBlogentry extends Struct.CollectionTypeSchema {
         'components.border',
         'components.button',
         'components.accordion',
+        'components.cardsbanner',
       ]
     >;
     createdAt: Schema.Attribute.DateTime;

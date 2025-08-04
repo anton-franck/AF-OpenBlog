@@ -37,6 +37,19 @@ export interface ComponentsButton extends Struct.ComponentSchema {
   };
 }
 
+export interface ComponentsCardsbanner extends Struct.ComponentSchema {
+  collectionName: 'components_components_cardsbanners';
+  info: {
+    displayName: 'Cardsbanner';
+    icon: 'apps';
+  };
+  attributes: {
+    Cards: Schema.Attribute.Component<'helpercomponents.card', true>;
+    description: Schema.Attribute.Text;
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface ComponentsHerobanner extends Struct.ComponentSchema {
   collectionName: 'components_components_herobanners';
   info: {
@@ -90,6 +103,20 @@ export interface HelpercomponentsAccordionContent
   };
 }
 
+export interface HelpercomponentsCard extends Struct.ComponentSchema {
+  collectionName: 'components_helpercomponents_cards';
+  info: {
+    displayName: 'Card';
+    icon: 'collapse';
+  };
+  attributes: {
+    buttonlink: Schema.Attribute.String;
+    buttontitle: Schema.Attribute.String;
+    image: Schema.Attribute.Media<'images'>;
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface HelpercomponentsNavlinks extends Struct.ComponentSchema {
   collectionName: 'components_helpercomponents_navlinks';
   info: {
@@ -108,10 +135,12 @@ declare module '@strapi/strapi' {
       'components.accordion': ComponentsAccordion;
       'components.border': ComponentsBorder;
       'components.button': ComponentsButton;
+      'components.cardsbanner': ComponentsCardsbanner;
       'components.herobanner': ComponentsHerobanner;
       'components.imagebanner': ComponentsImagebanner;
       'components.richtext': ComponentsRichtext;
       'helpercomponents.accordion-content': HelpercomponentsAccordionContent;
+      'helpercomponents.card': HelpercomponentsCard;
       'helpercomponents.navlinks': HelpercomponentsNavlinks;
     }
   }

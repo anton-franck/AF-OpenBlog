@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_components_cardsbanners",
+  "info": {
+    "displayName": "Cardsbanner",
+    "icon": "apps"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "Cards": {
+      "type": "component",
+      "component": "helpercomponents.card",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

@@ -43,7 +43,8 @@
         "components.imagebanner",
         "components.border",
         "components.button",
-        "components.accordion"
+        "components.accordion",
+        "components.cardsbanner"
       ]
     },
     "seotitle": {
