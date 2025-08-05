@@ -9,6 +9,9 @@
     "title": {
       "type": "string"
     },
+    "text": {
+      "type": "string"
+    },
     "image": {
       "type": "media",
       "multiple": false,

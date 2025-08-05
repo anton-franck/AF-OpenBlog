@@ -113,6 +113,7 @@ export interface HelpercomponentsCard extends Struct.ComponentSchema {
     buttonlink: Schema.Attribute.String;
     buttontitle: Schema.Attribute.String;
     image: Schema.Attribute.Media<'images'>;
+    text: Schema.Attribute.String;
     title: Schema.Attribute.String;
   };
 }

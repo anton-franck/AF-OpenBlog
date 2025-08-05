@@ -6,6 +6,7 @@ import { Border } from "./border"
 import { HeroBanner } from "./herobanner"
 import { ButtonComponent } from "./buttonbanner"
 import { AccordionBanner } from "./accordionbanner"
+import { CardBanner } from "./cardbanner"
 
 
 interface BannerRendererProps {
@@ -26,6 +27,8 @@ export const BannerRenderer: React.FC<BannerRendererProps> = ({ component }) => 
             return <ButtonComponent banner={component} />
         case "components.accordion":
             return <AccordionBanner banner={component} />
+        case "components.cardsbanner":
+            return <CardBanner banner={component} />
 
         default:
             return (
