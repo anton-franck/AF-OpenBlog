@@ -34,24 +34,6 @@ interface BlogLabel {
   id: number;
   title: string;
 }
-// export type Component =
-//   | ImageHero
-//   | BenefitsBanner
-//   | InfoBanner
-//   | NewsBanner
-//   | CalendarBanner
-//   | TextImageBanner;
-
-// export interface LandingPage {
-//   id: number;
-//   documentId: string;
-//   title: string;
-//   meta_title: string;
-//   meta_description: string;
-//   createdAt: string;
-//   updatedAt: string;
-//   publishedAt: string;
-// }
 
 export const getBlogposts = async (): Promise<BlogPosts> => {
   return unstable_cache(
