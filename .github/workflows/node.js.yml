@@ -10,6 +10,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
+    env:
+      NEXT_PUBLIC_STRAPI_API_URL: ${{ secrets.NEXT_PUBLIC_STRAPI_API_URL }}
+      NEXT_PUBLIC_API_TOKEN: ${{ secrets.NEXT_PUBLIC_API_TOKEN }}
+
     strategy:
       matrix:
         node-version: [22.x]
@@ -22,6 +26,13 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: "npm"
           cache-dependency-path: blog-frontend/package-lock.json
+
+      - name: Create .env.local file
+        run: |
+          touch blog-frontend/.env.local
+          echo "NEXT_PUBLIC_STRAPI_API_URL=${NEXT_PUBLIC_STRAPI_API_URL}" >> blog-frontend/.env.local
+          echo "NEXT_PUBLIC_API_TOKEN=${NEXT_PUBLIC_API_TOKEN}" >> blog-frontend/.env.local
+          # Weitere Umgebungsvariablen können hier hinzugefügt werden
 
       - run: npm install
         working-directory: blog-frontend
