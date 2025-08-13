@@ -11,8 +11,9 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      NEXT_PUBLIC_STRAPI_API_URL: ${{ secrets.NEXT_PUBLIC_STRAPI_API_URL }}
-      NEXT_PUBLIC_API_TOKEN: ${{ secrets.NEXT_PUBLIC_API_TOKEN }}
+      STRAPI_URL: ${{ secrets.STRAPI_URL }}
+      STRAPI_OPEN_URL: ${{ secrets.STRAPI_OPEN_URL }}
+      STRAPI_API_KEY: ${{ secrets.STRAPI_API_KEY }}
 
     strategy:
       matrix:
@@ -30,12 +31,16 @@ jobs:
       - name: Create .env.local file
         run: |
           touch blog-frontend/.env.local
-          echo "NEXT_PUBLIC_STRAPI_API_URL=${NEXT_PUBLIC_STRAPI_API_URL}" >> blog-frontend/.env.local
-          echo "NEXT_PUBLIC_API_TOKEN=${NEXT_PUBLIC_API_TOKEN}" >> blog-frontend/.env.local
+          echo "STRAPI_URL=${STRAPI_URL}" >> blog-frontend/.env.local
+          echo "STRAPI_OPEN_URL=${STRAPI_OPEN_URL}" >> blog-frontend/.env.local
+          echo "STRAPI_API_KEY=${STRAPI_API_KEY}" >> blog-frontend/.env.local
           # Weitere Umgebungsvariablen können hier hinzugefügt werden
 
       - run: npm install
         working-directory: blog-frontend
 
       - run: npm run lint
+        working-directory: blog-frontend
+
+      - run: npm run build
         working-directory: blog-frontend
