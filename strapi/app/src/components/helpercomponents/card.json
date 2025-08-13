@@ -1,0 +1,30 @@
+{
+  "collectionName": "components_helpercomponents_cards",
+  "info": {
+    "displayName": "Card",
+    "icon": "collapse"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "text": {
+      "type": "string"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "buttontitle": {
+      "type": "string"
+    },
+    "buttonlink": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

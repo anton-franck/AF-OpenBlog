@@ -8,7 +8,6 @@ import { processStrapiMediaUrls } from "@/lib/strapi-helpers";
 export async function generateMetadata(): Promise<Metadata> {
   const pageMetaData = await getBlogpageSettings()
   const processedMetaData = processStrapiMediaUrls(pageMetaData)
-  console.log(pageMetaData.favicon)
   return {
     title: processedMetaData.defaultseotitle,
     description: processedMetaData.defaultseodescription,

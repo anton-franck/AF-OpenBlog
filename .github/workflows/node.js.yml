@@ -10,6 +10,11 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
+    env:
+      STRAPI_URL: ${{ secrets.STRAPI_URL }}
+      STRAPI_OPEN_URL: ${{ secrets.STRAPI_OPEN_URL }}
+      STRAPI_API_KEY: ${{ secrets.STRAPI_API_KEY }}
+
     strategy:
       matrix:
         node-version: [22.x]
@@ -23,8 +28,18 @@ jobs:
           cache: "npm"
           cache-dependency-path: blog-frontend/package-lock.json
 
+      - name: Create .env.local file
+        run: |
+          touch blog-frontend/.env.local
+          echo "NEXT_PUBLIC_STRAPI_URL=${STRAPI_URL}" >> blog-frontend/.env.local
+          echo "NEXT_PUBLIC_STRAPI_OPEN_URL=${STRAPI_OPEN_URL}" >> blog-frontend/.env.local
+          echo "NEXT_PUBLIC_STRAPI_API_KEY=${STRAPI_API_KEY}" >> blog-frontend/.env.local
+
       - run: npm install
         working-directory: blog-frontend
 
       - run: npm run lint
+        working-directory: blog-frontend
+
+      - run: npm run build
         working-directory: blog-frontend

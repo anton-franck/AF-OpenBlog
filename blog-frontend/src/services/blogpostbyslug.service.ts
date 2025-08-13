@@ -40,6 +40,23 @@ export interface AccordionBanner {
   AccordionContent: AccordionItem[];
 }
 
+export interface CardsBanner {
+  __component: "components.cardsbanner";
+  id: number;
+  title: string;
+  description: string;
+  Cards: Card[];
+}
+
+interface Card {
+  id: number;
+  title: string;
+  text: string;
+  image: StrapiImage;
+  buttontitle: string;
+  buttonlink: string;
+}
+
 interface AccordionItem {
   id: number;
   title: string;
@@ -65,6 +82,7 @@ export type Component =
   | Border
   | HeroBanner
   | AccordionBanner
+  | CardsBanner
   | Button;
 
 export interface BlogPost {
@@ -122,6 +140,19 @@ export const getBlogpostBySlug = async (
                     fields: "*",
                     image: {
                       fields: populateImageFields,
+                    },
+                  },
+                },
+                "components.cardsbanner": {
+                  populate: {
+                    fields: "*",
+                    Cards: {
+                      populate: {
+                        fields: "*",
+                        image: {
+                          fields: populateImageFields,
+                        },
+                      },
                     },
                   },
                 },

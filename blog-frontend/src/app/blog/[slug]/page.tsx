@@ -62,6 +62,7 @@ export default async function BlogDetailPage({
                     <BannerRenderer component={component} key={idx} />
                 ))}
             </div>
+
         </div>
     );
 }
