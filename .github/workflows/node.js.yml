@@ -34,16 +34,6 @@ jobs:
           echo "NEXT_PUBLIC_STRAPI_URL=${STRAPI_URL}" >> blog-frontend/.env.local
           echo "NEXT_PUBLIC_STRAPI_OPEN_URL=${STRAPI_OPEN_URL}" >> blog-frontend/.env.local
           echo "NEXT_PUBLIC_STRAPI_API_KEY=${STRAPI_API_KEY}" >> blog-frontend/.env.local
-          # Weitere Umgebungsvariablen können hier hinzugefügt werden
-
-      - name: Debug - Prüfe Umgebungsvariablen
-        run: |
-          echo "Checking environment variables:"
-          echo "STRAPI_URL Länge: ${#STRAPI_URL}"
-          echo "STRAPI_OPEN_URL Länge: ${#STRAPI_OPEN_URL}"
-          echo "STRAPI_API_KEY Länge: ${#STRAPI_API_KEY}"
-          echo ".env.local Inhalt:"
-          cat blog-frontend/.env.local
 
       - run: npm install
         working-directory: blog-frontend
