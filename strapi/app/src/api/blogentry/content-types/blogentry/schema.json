@@ -53,6 +53,11 @@
     },
     "seodescription": {
       "type": "text"
+    },
+    "ShowotherEntries": {
+      "type": "component",
+      "component": "components.blogpostsbanner",
+      "repeatable": false
     }
   }
 }

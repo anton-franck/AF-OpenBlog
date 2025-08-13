@@ -410,6 +410,10 @@ export interface ApiBlogentryBlogentry extends Struct.CollectionTypeSchema {
     publishedAt: Schema.Attribute.DateTime;
     seodescription: Schema.Attribute.Text;
     seotitle: Schema.Attribute.String & Schema.Attribute.Required;
+    ShowotherEntries: Schema.Attribute.Component<
+      'components.blogpostsbanner',
+      false
+    >;
     slug: Schema.Attribute.String & Schema.Attribute.Required;
     title: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
