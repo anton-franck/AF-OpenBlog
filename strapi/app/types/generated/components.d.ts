@@ -16,23 +16,6 @@ export interface ComponentsAccordion extends Struct.ComponentSchema {
   };
 }
 
-export interface ComponentsBlogpostsbanner extends Struct.ComponentSchema {
-  collectionName: 'components_components_blogpostsbanners';
-  info: {
-    displayName: 'Blogpostsbanner';
-    icon: 'apps';
-  };
-  attributes: {
-    blogentries: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::blogentry.blogentry'
-    >;
-    showallposts: Schema.Attribute.Boolean &
-      Schema.Attribute.Required &
-      Schema.Attribute.DefaultTo<false>;
-  };
-}
-
 export interface ComponentsBorder extends Struct.ComponentSchema {
   collectionName: 'components_components_borders';
   info: {
@@ -151,7 +134,6 @@ declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
       'components.accordion': ComponentsAccordion;
-      'components.blogpostsbanner': ComponentsBlogpostsbanner;
       'components.border': ComponentsBorder;
       'components.button': ComponentsButton;
       'components.cardsbanner': ComponentsCardsbanner;
