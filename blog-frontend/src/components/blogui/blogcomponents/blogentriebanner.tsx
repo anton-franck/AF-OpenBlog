@@ -1,7 +1,6 @@
 import { BlogPosts } from "@/services/blogposts.service";
 import { BlogEntryBannerentries } from "@/services/blogpostbyslug.service";
 import { BlogCard } from "../blog-card";
-import { Border } from "./border";
 
 interface BlogEntryBannerProps {
   Blogposts: BlogPosts;
