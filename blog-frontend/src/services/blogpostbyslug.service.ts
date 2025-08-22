@@ -95,8 +95,17 @@ export interface BlogPost {
     seotitle: string;
     seodescription: string;
     updatedAt: string;
+    showentrybanner: boolean;
+    blogentries?: BlogEntryBannerentries[];
     components: Component[];
   };
+}
+
+export interface BlogEntryBannerentries {
+  id: number;
+  title: string;
+  slug: string;
+  documentId: string;
 }
 
 interface StrapiImage {
@@ -122,6 +131,12 @@ export const getBlogpostBySlug = async (
           },
           populate: {
             fields: "*",
+            blogentries: {
+              populate: {
+                fields: "*",
+              },
+              fields: "*",
+            },
             components: {
               on: {
                 "components.richtext": {
@@ -202,6 +217,7 @@ export const getBlogpostBySlug = async (
           return null;
         }
         const blogpost = responseData.data[0];
+
         return processStrapiMediaUrls(blogpost);
       } catch (error) {
         console.error(`Error fetching blog post with slug ${slug}:`, error);

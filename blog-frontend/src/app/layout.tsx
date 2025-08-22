@@ -6,14 +6,13 @@ import { getBlogpageSettings } from "@/services/blogsettings.service";
 import { processStrapiMediaUrls } from "@/lib/strapi-helpers";
 
 export async function generateMetadata(): Promise<Metadata> {
-  const pageMetaData = await getBlogpageSettings()
-  const processedMetaData = processStrapiMediaUrls(pageMetaData)
+  const pageMetaData = await getBlogpageSettings();
+  const processedMetaData = processStrapiMediaUrls(pageMetaData);
   return {
     title: processedMetaData.defaultseotitle,
     description: processedMetaData.defaultseodescription,
-    icons:
-      pageMetaData.favicon
-  }
+    icons: pageMetaData.icon && [pageMetaData.icon],
+  };
 }
 
 export default async function RootLayout({
@@ -33,4 +32,3 @@ export default async function RootLayout({
     </html>
   );
 }
-

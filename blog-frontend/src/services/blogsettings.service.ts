@@ -70,7 +70,7 @@ export const getBlogpageSettings = async (): Promise<BlogPageSettings> => {
 
         const responseData = await response.json();
         const blogsettings = responseData.data as BlogPageSettings;
-        const favicon = STRAPI_OPEN_URL + blogsettings.icon.url;
+        const favicon = STRAPI_OPEN_URL + blogsettings.icon?.url;
         return { ...processStrapiMediaUrls(blogsettings), favicon };
       } catch (error) {
         console.error("Error fetching blog page:", error);

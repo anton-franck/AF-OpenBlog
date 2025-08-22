@@ -17,7 +17,7 @@ export default function Footer({ icon, name }: FooterProps) {
                     <span className="font-medium text-sm sm:text-base">{name}</span>
                 </div>
                 <div className="text-xs sm:text-sm text-muted-foreground text-center">
-                    {new Date().getFullYear()} {name}. Made with OpenBlog.
+                    {new Date().getFullYear()} {name}. Made with <a className="text-black underline" href="https://openblog.afnetwork.de">OpenBlog</a>.
                 </div>
             </div>
         </footer>
