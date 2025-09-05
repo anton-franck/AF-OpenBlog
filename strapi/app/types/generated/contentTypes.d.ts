@@ -384,6 +384,10 @@ export interface ApiBlogentryBlogentry extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    blogentries: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::blogentry.blogentry'
+    >;
     blogimage: Schema.Attribute.Media<'images'>;
     components: Schema.Attribute.DynamicZone<
       [
@@ -410,6 +414,9 @@ export interface ApiBlogentryBlogentry extends Struct.CollectionTypeSchema {
     publishedAt: Schema.Attribute.DateTime;
     seodescription: Schema.Attribute.Text;
     seotitle: Schema.Attribute.String & Schema.Attribute.Required;
+    showentrybanner: Schema.Attribute.Boolean &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<false>;
     slug: Schema.Attribute.String & Schema.Attribute.Required;
     title: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;

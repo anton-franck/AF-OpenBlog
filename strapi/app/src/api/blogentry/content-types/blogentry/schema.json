@@ -53,6 +53,26 @@
     },
     "seodescription": {
       "type": "text"
+    },
+    "showentrybanner": {
+      "type": "boolean",
+      "required": true,
+      "default": false
+    },
+    "blogentries": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::blogentry.blogentry",
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "showentrybanner"
+            },
+            true
+          ]
+        }
+      }
     }
   }
 }
