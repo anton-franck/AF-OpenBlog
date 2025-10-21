@@ -33,16 +33,21 @@ export const BlogEntryBanner: React.FC<BlogEntryBannerProps> = ({
           </div>
         </>
       ) : (
+
         <>
-          <p className="text-lg font-bold mb-4">Weitere Beiträge:</p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 ">
-            {Blogposts.data
-              .filter((post) => post.id !== postid)
-              .slice(0, 3)
-              .map((post) => (
-                <BlogCard key={post.id} post={post} />
-              ))}
-          </div>
+          {Blogposts && Blogposts.data.length > 1 && (
+            <>
+              <p className="text-lg font-bold mb-4">Weitere Beiträge:</p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 ">
+                {Blogposts.data
+                  .filter((post) => post.id !== postid)
+                  .slice(0, 3)
+                  .map((post) => (
+                    <BlogCard key={post.id} post={post} />
+                  ))}
+              </div>
+            </>
+          )}
         </>
       )
       }
